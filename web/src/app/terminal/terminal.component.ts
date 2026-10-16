@@ -24,6 +24,7 @@ export class TerminalComponent implements OnInit, AfterViewInit {
   protected readonly frameIdx = signal(0);
   protected readonly peek = signal(false);
   protected readonly mascotDisplay = signal('');
+  protected readonly bannerDisplay = signal('');
 
   private input = viewChild<ElementRef<HTMLInputElement>>('kbd');
   private scroller = viewChild<ElementRef<HTMLElement>>('scroll');
@@ -46,6 +47,7 @@ export class TerminalComponent implements OnInit, AfterViewInit {
   async ngAfterViewInit() {
     await this.cmds.load();
     const c = this.cmds.content;
+    this.bannerOrig = c.banner;
     this.mascotFrames.set([c.mascot, c.mascotLeft ?? c.mascot, c.mascotRight ?? c.mascot, c.mascotBlink ?? c.mascot]);
     this.schedulePeek(5000 + Math.random() * 5000);
     this.startShimmer();
@@ -84,7 +86,6 @@ export class TerminalComponent implements OnInit, AfterViewInit {
   /* decode-mode static: every ~75ms EVERY non-space glyph in the banner
      and the mascot's current frame cycles to a random ramp char. the
      silhouette holds, every character is always morphing. */
-  private bannerLine: OutLine | null = null;
   private bannerOrig = '';
 
   /* every non-space cell cycles to a glyph of SIMILAR density each tick —
@@ -107,21 +108,7 @@ export class TerminalComponent implements OnInit, AfterViewInit {
   private startShimmer() {
     const ART_G = " .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B$@";
     setInterval(() => {
-      if (!this.bannerLine) {
-        const l = this.output().find((x) => x.cls?.includes('bannerline'));
-        if (l && l.runs[0]) { this.bannerLine = l; this.bannerOrig = l.runs[0].t; }
-      } else {
-        this.output.update((o) => {
-          const j = o.indexOf(this.bannerLine!);
-          if (j < 0) { this.bannerLine = null; return o; }
-          const run = this.bannerLine!.runs[0];
-          const c = [...o];
-          const nl = { ...this.bannerLine!, runs: [{ ...run, t: this.scramble(this.bannerOrig, ART_G) }] };
-          c[j] = nl;
-          this.bannerLine = nl;
-          return c;
-        });
-      }
+      if (this.bannerOrig) this.bannerDisplay.set(this.scramble(this.bannerOrig, ART_G));
       const frame = this.mascotFrames()[this.frameIdx()] ?? '';
       if (frame) this.mascotDisplay.set(this.scramble(frame, ART_G));
     }, 75);
@@ -173,17 +160,12 @@ export class TerminalComponent implements OnInit, AfterViewInit {
     const c = this.cmds.content;
     const skip = sessionStorage.getItem('lc-booted');
     if (skip) {
-      this.push({ runs: [R(c.banner, 'banner')], cls: 'bannerline' });
-      this.pushText('');
       this.pushText("type 'help'. you know the drill.", 'faint');
       return;
     }
     sessionStorage.setItem('lc-booted', '1');
     for (const l of c.boot) await this.typeLine(l);
     await sleep(300);
-    this.pushText('');
-    this.push({ runs: [R(c.banner, 'banner')], cls: 'glitch bannerline' });
-    await sleep(400);
     this.pushText('');
     await this.print(c.afterBanner.map((runs) => L(runs)), 40);
   }

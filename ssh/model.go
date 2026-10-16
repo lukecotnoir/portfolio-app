@@ -59,9 +59,9 @@ func visibleWidth(s string) int {
 	return len([]rune(ansiRe.ReplaceAllString(s, "")))
 }
 
-// overlayMascot draws art rows flush-right at the top of the view, only on
-// rows short enough to leave him room — busy lines stay untouched and he
-// just peeks over the empty ones.
+// overlayMascot draws art rows flush-right at the top of the scroll
+// region, only on rows short enough to leave him room — busy lines stay
+// untouched and he just peeks over the empty ones.
 func overlayMascot(view string, width int, art string) string {
 	rows := strings.Split(art, "\n")
 	mw := 0
@@ -97,6 +97,8 @@ type model struct {
 	lines       []string
 	height      int
 	quitting    bool
+	header      string
+	headerH     int
 	mascotOn    bool
 	mascotFrame int
 	peekTicks   int
@@ -122,15 +124,18 @@ func newModel(user string, authed bool) model {
 	m := model{vp: vp, ti: ti, user: user, hIdx: -1}
 	m.nextPeek = time.Now().Add(6 * time.Second)
 
+	b := content.BannerSsh
+	if b == "" {
+		b = content.Banner
+	}
+	m.header = stBanner.Render(b)
+	m.headerH = strings.Count(b, "\n") + 1
+
 	var boot []string
 	for _, runs := range content.Boot {
 		boot = append(boot, renderLine(runs))
 	}
-	boot = append(boot,
-		"",
-		stBanner.Render(content.Banner),
-		"",
-	)
+	boot = append(boot, "")
 	for _, runs := range content.AfterBanner {
 		boot = append(boot, renderLine(runs))
 	}
@@ -164,7 +169,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		}
 		if msg.Height > 0 {
 			m.height = msg.Height
-			m.vp.Height = msg.Height - 2
+			m.vp.Height = msg.Height - m.headerH - 3
 			if m.vp.Height < 1 {
 				m.vp.Height = 1
 			}
@@ -287,7 +292,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 }
 
 func (m model) View() string {
-	view := m.vp.View() + "\n" + m.ti.View()
+	body := m.vp.View()
 	if m.mascotOn {
 		arts := []string{content.Mascot, content.MascotLeft, content.MascotRight, content.MascotBlink}
 		art := content.Mascot
@@ -298,7 +303,7 @@ func (m model) View() string {
 		if idx >= 0 && idx < len(arts) && arts[idx] != "" {
 			art = arts[idx]
 		}
-		view = overlayMascot(view, m.vp.Width, art)
+		body = overlayMascot(body, m.vp.Width, art)
 	}
-	return view
+	return m.header + "\n\n" + body + "\n" + m.ti.View()
 }

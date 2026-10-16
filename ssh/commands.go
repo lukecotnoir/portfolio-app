@@ -15,6 +15,7 @@ type Run struct {
 
 type Content struct {
 	Banner       string              `json:"banner"`
+	BannerSsh    string              `json:"bannerSsh"`
 	Detective    string              `json:"detective"`
 	NeofetchLogo string              `json:"neofetchLogo"`
 	Mascot       string              `json:"mascot"`
