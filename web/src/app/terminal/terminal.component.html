@@ -1,0 +1,48 @@
+<div class="frame" aria-hidden="true">
+  <div class="frame-top">
+    <span class="frame-dots"><i></i><i></i><i></i></span>
+    <span class="frame-title">guest&#64;lcotnoir — 80×24 — zsh</span>
+    <span class="frame-right">{{ clock() }}</span>
+  </div>
+</div>
+
+<main id="terminal" #scroll aria-label="Interactive terminal portfolio">
+  <div id="output" role="log" aria-live="polite">
+    @for (line of output(); track $index) {
+      <div class="line reveal" [class.echo-line]="line.cls === 'echo-line'" [class.glitch]="line.cls === 'glitch'">
+        @for (run of line.runs; track $index) {
+          @if (run.href) {
+            <a class="run" [class]="'run ' + (run.s ?? 'body')" [href]="run.href"
+               [target]="run.href.startsWith('mailto') ? '_self' : '_blank'" rel="noopener">{{ run.t }}</a>
+          } @else {
+            <span class="run" [class]="'run ' + (run.s ?? 'body')">{{ run.t || ' ' }}</span>
+          }
+        }
+      </div>
+    }
+  </div>
+
+  @if (ready()) {
+  <div id="input-line">
+    <span class="prompt">guest&#64;lcotnoir</span><span class="prompt-dim">:~$</span>
+    <span id="echo-wrap">
+      <span id="echo">{{ before() }}</span><span id="cursor" [class.has-char]="!!at()">{{ at() }}</span><span id="echo2">{{ after() }}</span>
+    </span>
+    <input #kbd id="kbd" type="text" autocomplete="off" autocapitalize="off" autocorrect="off"
+           spellcheck="false" aria-label="terminal input"
+           (input)="onInput($event)" (keydown)="onKey($event)"
+           (select)="sync()" (keyup)="sync()" (click)="sync(); $event.stopPropagation()">
+  </div>
+  }
+</main>
+
+<nav id="chips" aria-label="quick commands">
+  <span class="chips-label">lazy mode:</span>
+  @for (c of chips; track c) {
+    <button (click)="chip(c); $event.stopPropagation()">{{ c === 'resume' ? 'resume.pdf' : c }}</button>
+  }
+</nav>
+
+<div class="fx scanlines" aria-hidden="true"></div>
+<div class="fx grain" aria-hidden="true"></div>
+<div class="fx vignette" aria-hidden="true"></div>

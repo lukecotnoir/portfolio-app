@@ -1,0 +1,24 @@
+[Unit]
+Description=lcotnoir ssh portfolio (wish/bubbletea)
+After=network.target
+
+[Service]
+Type=simple
+User=lcotnoir
+WorkingDirectory=/opt/lcotnoir
+ExecStart=/opt/lcotnoir/lcotnoir
+Environment=PORT=22
+Environment=SITE_HOST=lcotnoir.dev
+Restart=always
+RestartSec=3
+
+# hardening — binding :22 needs CAP_NET_BIND_SERVICE, not root
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/lcotnoir/.ssh
+
+[Install]
+WantedBy=multi-user.target
