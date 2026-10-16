@@ -23,7 +23,7 @@ dev-ssh: sync
 build: web ssh
 
 test:
-	cd web && ng test --watch=false --browsers=ChromeHeadless
+	cd web && ng test --watch=false
 	cd ssh && go test ./...
 
 clean:
