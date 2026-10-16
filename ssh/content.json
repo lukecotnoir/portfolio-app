@@ -1,121 +1,503 @@
 {
   "banner": "██╗     ██╗   ██╗██╗  ██╗███████╗\n██║     ██║   ██║██║ ██╔╝██╔════╝\n██║     ██║   ██║█████╔╝ █████╗\n██║     ██║   ██║██╔═██╗ ██╔══╝\n███████╗╚██████╔╝██║  ██╗███████╗\n╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝\n ██████╗ ██████╗ ████████╗███╗   ██╗ ██████╗ ██╗██████╗\n██╔════╝██╔═══██╗╚══██╔══╝████╗  ██║██╔═══██╗██║██╔══██╗\n██║     ██║   ██║   ██║   ██╔██╗ ██║██║   ██║██║██████╔╝\n██║     ██║   ██║   ██║   ██║╚██╗██║██║   ██║██║██╔══██╗\n╚██████╗╚██████╔╝   ██║   ██║ ╚████║╚██████╔╝██║██║  ██║\n ╚═════╝ ╚═════╝    ╚═╝   ╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝",
-
-  "detective": "                ▄▄▄▄    ▄▄▄▄\n               ▄████████████▄\n               ██████████████\n              ▄██████████████▄\n            ▄▄▄ ▀▀▀▀▀▀▀▀▀▀▀▀▄▄▄▄\n         ██████████████████████████\n          ▀▀▀▀████████████████▀▀▀▀\n              ████████████████\n              ████████████████\n             ▄▄██████████████▄▄\n           ██████████████████████\n           ▀█████▀████████▀█████▀\n            ▄████▄ ▀████▀ ▄████▄\n        ▄▄████████   ██▄  ████████▄▄\n     ▄█████████████ ▀██▀ █████████████▄\n    ███████████████▄ ██ ▄███████████████\n   ██████████████████████████████████████\n  ▄██████████████████████████████████████▄\n  ████████████████████████████████████████\n ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀",
-
-  "neofetchLogo": "      ██████╗\n     ██╔═══██╗\n     ██║   ██║\n     ██║   ██║\n     ╚██████╔╝\n      ╚═════╝",
-
+  "detective": "                          _(jnvcj+\n               !1/\\\\\\|)}{tnf{?[fLZf\n              -f1;       -jt>   ~Cq/\n             <r)          |OdOcjuwWm-\n             jmU|}}?;      [Ua%@@@@Bz\n            iQ%M0j-         I{rUZmmq0{\n            ?w*C{                  >jx>\n            |Oz>                    -f{   ;l!\n            jZj             <}/xzQwdh#bCnttvJu~\n        >-{rp&omCn{l        }u0ph*&%WhZc)__{{i\n    I|cLpaMB@@%hC\\i        +)rvcur|-l;!\n     ?{}}{)\\fjf|{]+iI    I!i!I   +j\\l+t[\n             <  I              +\\ck#Crj+\n             {fzJ1       !/\\>  [Yh@@hQr~\n            !)jvZU>      )dhn!  [Z%ou]]/)\n          >(\\- IxY?      (mbz[}rzJdC>  >jr<\n        !\\r1    ]uvu{     )YCUZW8dL/    <nz[\n       (cj~      {LkY!    ]nXvQ*#O/      ?YL(\n     ?cUj+        ~rji    _/njjcux(      l\\L0t\n   !nmpmQz)l        i     {vzr))vCfl    I{xUwwnl\n   }Y0OwbpLti      I>      _1jUm0n{-[\\f(}j0dbbwx;\n     ~fQqLx(+      I1|_;   >tJZY[   ItOOx|jUqpU1\n l1vZ*&aX-   I      +uUf<  (Ur~       vpY[i{Ub*hOn];\nmbha8%w1   i?-       }\\<   -nfi       ~xt~  -jO&$%Wh\nvf)fv)   {jf[         i    I(YjI       l<<    {Y0cvU\n   >  _rJ0Y\\~         ?1I  I1XmU1l   l>!<1t(~  <|}\n    _zLUvrxf_                -/uuj/\\)]l  [vOZY/+l!\n    >rYx1)\\?            I-)jcn];         ?jUOmL|\n      [nr{>         -fvXULLYLqwu!        [rcXr_\n       l(/+       ~fcYCYt?~ll?xv]       i(xx{\n         +]!     \\whwOZOUccUCUn-       I[\\)>\n           !    \\dhLn)1jzufrnvf>       +}_\n              !rbhc<  [zLUvuXX|       l<\n         I}|{\\LakU)l   itYznuf~\n      >\\Jbpr-rYr\\?;     }uXXu}\n   ~1fYOm0/  //;         !<l\n  <-<<-_~i   {|l\n             I?~\n               !",
+  "neofetchLogo": "        ,i_~; ,>[?:\n      +|CbbY-   i}[>\n     +/LaaC}      l]~\n     |Yr?:      ,[nr-\n     -ur1-:   l{cOL/:\n       ,1JLr]_?)uc{\n         :<>    ,})i\n                  l}1>\n                   l)\\~\n                     !?+\n                      <<",
   "boot": [
-    [{"t": "> resolving lcotnoir.dev ............ ok", "s": "dim"}],
-    [{"t": "> handshake: aes-256 .............. done", "s": "dim"}],
-    [{"t": "> auth: guest ..................... granted", "s": "dim"}]
+    [
+      {
+        "t": "> resolving lcotnoir.dev ............ ok",
+        "s": "dim"
+      }
+    ],
+    [
+      {
+        "t": "> handshake: aes-256 .............. done",
+        "s": "dim"
+      }
+    ],
+    [
+      {
+        "t": "> auth: guest ..................... granted",
+        "s": "dim"
+      }
+    ]
   ],
-
   "afterBanner": [
-    [{"t": "full-stack engineer · secure systems · norfolk, va", "s": "dim"}],
-    [{"t": "type `help` — or click a command below", "s": "accent"}]
+    [
+      {
+        "t": "full-stack engineer · secure systems · norfolk, va",
+        "s": "dim"
+      }
+    ],
+    [
+      {
+        "t": "type `help` — or click a command below",
+        "s": "accent"
+      }
+    ]
   ],
-
-  "files": ["about.txt", "experience.txt", "skills.txt", "education.txt", "contact.txt", "interests.txt", "resume.pdf", "secrets.txt"],
-
+  "files": [
+    "about.txt",
+    "experience.txt",
+    "skills.txt",
+    "education.txt",
+    "contact.txt",
+    "interests.txt",
+    "resume.pdf",
+    "secrets.txt"
+  ],
   "sections": {
     "about": [
-      [{"t": "LUKE COTNOIR", "s": "bright"}],
-      [{"t": "full-stack software engineer · norfolk, va"}],
-      [{"t": "active TS/SCI — full scope poly", "s": "accent"}],
-      [{"t": ""}],
-      [{"t": "builds secure systems for DoD / intelligence-community targeting"}],
-      [{"t": "platforms. java + spring boot on the backend, angular 21 on the"}],
-      [{"t": "frontend, devsecops across classified and unclassified environs."}],
-      [{"t": ""}],
-      [{"t": "ships things that work, in places where things have to work.", "s": "dim"}]
+      [
+        {
+          "t": "LUKE COTNOIR",
+          "s": "bright"
+        }
+      ],
+      [
+        {
+          "t": "full-stack software engineer · norfolk, va"
+        }
+      ],
+      [
+        {
+          "t": "active TS/SCI — full scope poly",
+          "s": "accent"
+        }
+      ],
+      [
+        {
+          "t": ""
+        }
+      ],
+      [
+        {
+          "t": "builds secure systems for DoD / intelligence-community targeting"
+        }
+      ],
+      [
+        {
+          "t": "platforms. java + spring boot on the backend, angular 21 on the"
+        }
+      ],
+      [
+        {
+          "t": "frontend, devsecops across classified and unclassified environs."
+        }
+      ],
+      [
+        {
+          "t": ""
+        }
+      ],
+      [
+        {
+          "t": "ships things that work, in places where things have to work.",
+          "s": "dim"
+        }
+      ]
     ],
-
     "work": [
-      [{"t": "MODUS OPERANDI", "s": "bright"}],
-      [{"t": "full-stack software engineer · norfolk, va / hybrid"}],
-      [{"t": "jun 2025 → present", "s": "accent"}],
-      [{"t": ""}],
-      [{"t": "  ▸ cut analyst source-citation review time from weeks to a few"}],
-      [{"t": "    hours — dynamic citation management, classification roll-up,"}],
-      [{"t": "    fine-grained access control. spring boot apis + angular."}],
-      [{"t": "  ▸ owned a backend module overhaul design → production as"}],
-      [{"t": "    primary engineer; sustained delivery across 14 sprints."}],
-      [{"t": "  ▸ shipped 8 containerized services into 4 classified and"}],
-      [{"t": "    unclassified environments with devsecops ci/cd practices."}],
-      [{"t": "  ▸ leading the react → angular 21 migration of a production"}],
-      [{"t": "    mission-critical frontend: 20+ analyst-facing views rebuilt."}],
-      [{"t": ""}],
-      [{"t": "GDIT & GCI, inc.", "s": "bright"}],
-      [{"t": "software engineer intern · chantilly, va"}],
-      [{"t": "summer 2023 · summer 2024", "s": "accent"}],
-      [{"t": ""}],
-      [{"t": "  ▸ prototyped an autoscaling container-scanning pipeline:"}],
-      [{"t": "    aws, terraform, kubernetes, docker, python."}],
-      [{"t": "  ▸ wrote the docs, presented the prototype, aligned stakeholders."}],
-      [{"t": "  ▸ automated an internal onboarding tool that replaced email workflows."}]
+      [
+        {
+          "t": "MODUS OPERANDI",
+          "s": "bright"
+        }
+      ],
+      [
+        {
+          "t": "full-stack software engineer · norfolk, va / hybrid"
+        }
+      ],
+      [
+        {
+          "t": "jun 2025 → present",
+          "s": "accent"
+        }
+      ],
+      [
+        {
+          "t": ""
+        }
+      ],
+      [
+        {
+          "t": "  ▸ cut analyst source-citation review time from weeks to a few"
+        }
+      ],
+      [
+        {
+          "t": "    hours — dynamic citation management, classification roll-up,"
+        }
+      ],
+      [
+        {
+          "t": "    fine-grained access control. spring boot apis + angular."
+        }
+      ],
+      [
+        {
+          "t": "  ▸ owned a backend module overhaul design → production as"
+        }
+      ],
+      [
+        {
+          "t": "    primary engineer; sustained delivery across 14 sprints."
+        }
+      ],
+      [
+        {
+          "t": "  ▸ shipped 8 containerized services into 4 classified and"
+        }
+      ],
+      [
+        {
+          "t": "    unclassified environments with devsecops ci/cd practices."
+        }
+      ],
+      [
+        {
+          "t": "  ▸ leading the react → angular 21 migration of a production"
+        }
+      ],
+      [
+        {
+          "t": "    mission-critical frontend: 20+ analyst-facing views rebuilt."
+        }
+      ],
+      [
+        {
+          "t": ""
+        }
+      ],
+      [
+        {
+          "t": "GDIT & GCI, inc.",
+          "s": "bright"
+        }
+      ],
+      [
+        {
+          "t": "software engineer intern · chantilly, va"
+        }
+      ],
+      [
+        {
+          "t": "summer 2023 · summer 2024",
+          "s": "accent"
+        }
+      ],
+      [
+        {
+          "t": ""
+        }
+      ],
+      [
+        {
+          "t": "  ▸ prototyped an autoscaling container-scanning pipeline:"
+        }
+      ],
+      [
+        {
+          "t": "    aws, terraform, kubernetes, docker, python."
+        }
+      ],
+      [
+        {
+          "t": "  ▸ wrote the docs, presented the prototype, aligned stakeholders."
+        }
+      ],
+      [
+        {
+          "t": "  ▸ automated an internal onboarding tool that replaced email workflows."
+        }
+      ]
     ],
-
     "skills": [
-      [{"t": "languages", "s": "key"}, {"t": "    java · python · typescript · c++", "s": "dim"}],
-      [{"t": "backend", "s": "key"}, {"t": "      spring boot · rest apis · oauth", "s": "dim"}],
-      [{"t": "cloud/devsec", "s": "key"}, {"t": "  docker · kubernetes · aws · aws govcloud · platform one", "s": "dim"}],
-      [{"t": "data", "s": "key"}, {"t": "        postgresql · mysql · rdf4j", "s": "dim"}],
-      [{"t": "frontend", "s": "key"}, {"t": "    angular 21 · react", "s": "dim"}],
-      [{"t": "methods", "s": "key"}, {"t": "     agile · tdd · rest · microservices", "s": "dim"}],
-      [{"t": ""}],
-      [{"t": "certs", "s": "key"}, {"t": "       comptia security+ ce", "s": "dim"}]
+      [
+        {
+          "t": "languages",
+          "s": "key"
+        },
+        {
+          "t": "    java · python · typescript · c++",
+          "s": "dim"
+        }
+      ],
+      [
+        {
+          "t": "backend",
+          "s": "key"
+        },
+        {
+          "t": "      spring boot · rest apis · oauth",
+          "s": "dim"
+        }
+      ],
+      [
+        {
+          "t": "cloud/devsec",
+          "s": "key"
+        },
+        {
+          "t": "  docker · kubernetes · aws · aws govcloud · platform one",
+          "s": "dim"
+        }
+      ],
+      [
+        {
+          "t": "data",
+          "s": "key"
+        },
+        {
+          "t": "        postgresql · mysql · rdf4j",
+          "s": "dim"
+        }
+      ],
+      [
+        {
+          "t": "frontend",
+          "s": "key"
+        },
+        {
+          "t": "    angular 21 · react",
+          "s": "dim"
+        }
+      ],
+      [
+        {
+          "t": "methods",
+          "s": "key"
+        },
+        {
+          "t": "     agile · tdd · rest · microservices",
+          "s": "dim"
+        }
+      ],
+      [
+        {
+          "t": ""
+        }
+      ],
+      [
+        {
+          "t": "certs",
+          "s": "key"
+        },
+        {
+          "t": "       comptia security+ ce",
+          "s": "dim"
+        }
+      ]
     ],
-
     "edu": [
-      [{"t": "CHRISTOPHER NEWPORT UNIVERSITY", "s": "bright"}],
-      [{"t": "b.s. computer science · minor: information science"}],
-      [{"t": "newport news, va · may 2025", "s": "dim"}],
-      [{"t": "gpa 3.95", "s": "accent"}]
+      [
+        {
+          "t": "CHRISTOPHER NEWPORT UNIVERSITY",
+          "s": "bright"
+        }
+      ],
+      [
+        {
+          "t": "b.s. computer science · minor: information science"
+        }
+      ],
+      [
+        {
+          "t": "newport news, va · may 2025",
+          "s": "dim"
+        }
+      ],
+      [
+        {
+          "t": "gpa 3.95",
+          "s": "accent"
+        }
+      ]
     ],
-
     "interests": [
-      [{"t": "off the clock:", "s": "dim"}],
-      [{"t": ""}],
-      [{"t": "  music", "s": "key"}, {"t": "     crate-digging · ex-producer · guitar"}],
-      [{"t": "  games", "s": "key"}, {"t": "     overwatch · wow · hollow knight"}],
-      [{"t": "  iron", "s": "key"}, {"t": "      weightlifting · indoor bouldering"}],
-      [{"t": "  garage", "s": "key"}, {"t": "    cars — always cars"}],
-      [{"t": "  kitchen", "s": "key"}, {"t": "   cooking"}],
-      [{"t": "  houses", "s": "key"}, {"t": "    classic architecture · zillow, recreationally"}]
+      [
+        {
+          "t": "off the clock:",
+          "s": "dim"
+        }
+      ],
+      [
+        {
+          "t": ""
+        }
+      ],
+      [
+        {
+          "t": "  music",
+          "s": "key"
+        },
+        {
+          "t": "     crate-digging · ex-producer · guitar"
+        }
+      ],
+      [
+        {
+          "t": "  games",
+          "s": "key"
+        },
+        {
+          "t": "     overwatch · wow · hollow knight"
+        }
+      ],
+      [
+        {
+          "t": "  iron",
+          "s": "key"
+        },
+        {
+          "t": "      weightlifting · indoor bouldering"
+        }
+      ],
+      [
+        {
+          "t": "  garage",
+          "s": "key"
+        },
+        {
+          "t": "    cars — always cars"
+        }
+      ],
+      [
+        {
+          "t": "  kitchen",
+          "s": "key"
+        },
+        {
+          "t": "   cooking"
+        }
+      ],
+      [
+        {
+          "t": "  houses",
+          "s": "key"
+        },
+        {
+          "t": "    classic architecture · zillow, recreationally"
+        }
+      ]
     ],
-
     "contact": [
-      [{"t": "email", "s": "key"}, {"t": "    lukeduke313@gmail.com", "href": "mailto:lukeduke313@gmail.com"}],
-      [{"t": "phone", "s": "key"}, {"t": "    (703) 851-5698"}],
-      [{"t": "base", "s": "key"}, {"t": "     norfolk, va"}],
-      [{"t": "github", "s": "key"}, {"t": "   github.com/lukeduke313", "href": "https://github.com/lukeduke313"}],
-      [{"t": "linkedin", "s": "key"}, {"t": " linkedin.com/in/lukecotnoir", "href": "https://linkedin.com/in/lukecotnoir"}]
+      [
+        {
+          "t": "email",
+          "s": "key"
+        },
+        {
+          "t": "    lukeduke313@gmail.com",
+          "href": "mailto:lukeduke313@gmail.com"
+        }
+      ],
+      [
+        {
+          "t": "phone",
+          "s": "key"
+        },
+        {
+          "t": "    (703) 851-5698"
+        }
+      ],
+      [
+        {
+          "t": "base",
+          "s": "key"
+        },
+        {
+          "t": "     norfolk, va"
+        }
+      ],
+      [
+        {
+          "t": "github",
+          "s": "key"
+        },
+        {
+          "t": "   github.com/lukeduke313",
+          "href": "https://github.com/lukeduke313"
+        }
+      ],
+      [
+        {
+          "t": "linkedin",
+          "s": "key"
+        },
+        {
+          "t": " linkedin.com/in/lukecotnoir",
+          "href": "https://linkedin.com/in/lukecotnoir"
+        }
+      ]
     ],
-
     "hire": [
-      [{"t": "  → builds secure full-stack systems for the IC"}],
-      [{"t": "  → ships production angular + spring boot"}],
-      [{"t": "  → holds the clearance most teams wait a year for"}],
-      [{"t": ""}],
-      [{"t": "  run `contact`.", "s": "accent"}]
+      [
+        {
+          "t": "  → builds secure full-stack systems for the IC"
+        }
+      ],
+      [
+        {
+          "t": "  → ships production angular + spring boot"
+        }
+      ],
+      [
+        {
+          "t": "  → holds the clearance most teams wait a year for"
+        }
+      ],
+      [
+        {
+          "t": ""
+        }
+      ],
+      [
+        {
+          "t": "  run `contact`.",
+          "s": "accent"
+        }
+      ]
     ]
   },
-
   "help": {
     "essentials": [
-      ["about", "who this is"],
-      ["work", "what he ships"],
-      ["skills", "the toolkit"],
-      ["edu", "schooling + certs"],
-      ["interests", "off the clock"],
-      ["contact", "get in touch"],
-      ["resume", "the pdf"]
+      [
+        "about",
+        "who this is"
+      ],
+      [
+        "work",
+        "what he ships"
+      ],
+      [
+        "skills",
+        "the toolkit"
+      ],
+      [
+        "edu",
+        "schooling + certs"
+      ],
+      [
+        "interests",
+        "off the clock"
+      ],
+      [
+        "contact",
+        "get in touch"
+      ],
+      [
+        "resume",
+        "the pdf"
+      ]
     ],
     "extras": [
-      "ls · cat · neofetch · man luke · htop",
+      "ls · cat · neofetch · man luke · htop · peek",
       "hire · clearance · sudo · exit"
     ],
     "footer": "tab completes. ↑/↓ recalls history. ctrl+l clears."
-  }
+  },
+  "mascot": "             >>; >\\Uz_\n           +xdBBM*%@@o)\n          )Lmkohpmmmppzl\n          1t({[][[}}[?<\n        :[/xvzzzcvuzUYvnf)-I\n     ;+})(1(xj+    [|-  l+?->\n     il    1pO[:l_zo0_\n    ;Illl;>xwLrv0LCm0f_I;I;:::",
+  "mascotBlink": "             >>; >\\Uz_\n           +xdBBM*%@@o)\n          )Lmkohpmmmppzl\n          1t({[][[}}[?<\n        :[/xvzzzcvuzUYvnf)-I\n     ;+})(1(xj+    [|-  l+?->\n     il    1--[:l_---_\n    ;Illl;>xwLrv0LCm0f_I;I;:::"
 }

@@ -64,6 +64,33 @@ body {
 .frame-title { text-transform: lowercase; }
 .frame-right { color: var(--accent-dim); font-variant-numeric: tabular-nums; }
 
+/* ── the detective in the corner ────────────────────────────────
+   he rises into a clipped window under the title bar, holds,
+   and sinks back out of sight. */
+
+.mascot-clip {
+  position: fixed;
+  top: 36px;
+  right: 22px;
+  font-size: 12px;
+  height: 10.4em;              /* exactly the 8 art rows — his ledge sits on the sill */
+  overflow: hidden;
+  z-index: 45;
+  pointer-events: none;
+  user-select: none;
+}
+
+.mascot {
+  line-height: 1.3;
+  color: var(--fg);
+  text-shadow: 0 0 12px rgba(217,160,91,.22);
+  white-space: pre;
+  transform: translateY(160%);
+  transition: transform .62s cubic-bezier(.25,.9,.3,1);
+}
+
+.mascot.peek { transform: translateY(0); }
+
 /* ── terminal body ────────────────────────────────────────────── */
 
 #terminal {
@@ -231,10 +258,12 @@ a.run:hover { color: var(--fg-bright); border-bottom-style: solid; }
   .frame-top { height: 30px; padding: 0 10px; }
   .frame-title { display: none; }
   .line.banner { font-size: 9px; line-height: 1.25; }
+  .mascot-clip { top: 31px; right: 8px; font-size: 9px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   #cursor, .grain { animation: none; }
   .line.reveal { animation: none; opacity: 1; }
   .glitch { animation: none; }
+  .mascot-clip { display: none; }
 }

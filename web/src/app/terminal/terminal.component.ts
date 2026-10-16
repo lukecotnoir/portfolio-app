@@ -20,6 +20,10 @@ export class TerminalComponent implements OnInit, AfterViewInit {
   protected readonly pos = signal(0);
   protected readonly clock = signal('--:--');
   protected readonly ready = signal(false);
+  protected readonly mascotArt = signal('');
+  protected readonly mascotBlinkArt = signal('');
+  protected readonly peek = signal(false);
+  protected readonly blink = signal(false);
 
   private input = viewChild<ElementRef<HTMLInputElement>>('kbd');
   private scroller = viewChild<ElementRef<HTMLElement>>('scroll');
@@ -41,9 +45,36 @@ export class TerminalComponent implements OnInit, AfterViewInit {
 
   async ngAfterViewInit() {
     await this.cmds.load();
+    this.mascotArt.set(this.cmds.content.mascot);
+    this.mascotBlinkArt.set(this.cmds.content.mascotBlink ?? this.cmds.content.mascot);
+    this.schedulePeek(5000 + Math.random() * 5000);
     await this.boot();
     this.ready.set(true);
     this.focus();
+  }
+
+  /* the detective in the corner: rises over the sill, blinks, ducks back.
+     ~1 in 5 visits he does a double take. */
+  private schedulePeek(delay: number) {
+    setTimeout(() => void this.doPeek(), delay);
+  }
+
+  private async doPeek() {
+    this.peek.set(true);
+    const hold = 1600 + Math.random() * 1800;
+    if (Math.random() < 0.55) {
+      const at = 500 + Math.random() * Math.max(400, hold - 800);
+      setTimeout(() => {
+        this.blink.set(true);
+        setTimeout(() => this.blink.set(false), 160);
+      }, at);
+    }
+    await sleep(hold);
+    this.peek.set(false);
+    const next = Math.random() < 0.22
+      ? 500 + Math.random() * 800
+      : 14000 + Math.random() * 26000;
+    this.schedulePeek(next);
   }
 
   /* ── output ── */

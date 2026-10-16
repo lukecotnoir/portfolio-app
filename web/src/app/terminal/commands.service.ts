@@ -101,12 +101,13 @@ export class CommandsService {
             ['icons', 'none. we use text.'],
           ];
           const art = c.neofetchLogo.split('\n').filter((l) => l.length);
+          const gutter = Math.max(...art.map((l) => l.length)) + 4;
           const head = 'guest@lcotnoir';
           const sep = '─'.repeat(head.length);
           const rows: OutLine[] = [];
           const n = Math.max(art.length, specs.length + 2);
           for (let i = 0; i < n; i++) {
-            const a = (art[i] || '').padEnd(12);
+            const a = (art[i] || '').padEnd(gutter);
             let right: Run;
             if (i === 0) right = R(head, 'accent');
             else if (i === 1) right = R(sep, 'faint');
@@ -241,6 +242,10 @@ export class CommandsService {
 
       games: { desc: 'easter egg', run: () => [TEXT('overwatch · wow · hollow knight.', 'dim')] },
       music: { desc: 'easter egg', run: () => [TEXT('ex-producer. guitar in the corner. always hunting the next record.', 'dim')] },
+      peek: {
+        desc: 'he watches',
+        run: () => [...ART_LINE(c.mascot), TEXT('he sees you.', 'dim')],
+      },
     };
   }
 

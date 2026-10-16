@@ -20,6 +20,8 @@ export interface Content {
   banner: string;
   detective: string;
   neofetchLogo: string;
+  mascot: string;
+  mascotBlink?: string;
   boot: Line[];
   afterBanner: Line[];
   files: string[];

@@ -1,7 +1,10 @@
 package main
 
 import (
+	"math/rand"
+	"regexp"
 	"strings"
+	"time"
 
 	"github.com/charmbracelet/bubbles/textinput"
 	"github.com/charmbracelet/bubbles/viewport"
@@ -44,15 +47,65 @@ func echoLine(cmd string) string {
 	return stAccent.Render("guest@lcotnoir") + stDim.Render(":~$ ") + stBright.Render(cmd)
 }
 
+type mascotMsg struct{}
+
+func mascotTick() tea.Cmd {
+	return tea.Tick(400*time.Millisecond, func(time.Time) tea.Msg { return mascotMsg{} })
+}
+
+var ansiRe = regexp.MustCompile("\x1b\\[[0-9;:]*[a-zA-Z]")
+
+func visibleWidth(s string) int {
+	return len([]rune(ansiRe.ReplaceAllString(s, "")))
+}
+
+// overlayMascot draws art rows flush-right at the top of the view, only on
+// rows short enough to leave him room — busy lines stay untouched and he
+// just peeks over the empty ones.
+func overlayMascot(view string, width int, art string) string {
+	rows := strings.Split(art, "\n")
+	mw := 0
+	for _, r := range rows {
+		if w := len([]rune(r)); w > mw {
+			mw = w
+		}
+	}
+	col := width - mw - 2
+	if col < 5 {
+		return view
+	}
+	lines := strings.Split(view, "\n")
+	for i, r := range rows {
+		if i >= len(lines) {
+			break
+		}
+		vw := visibleWidth(lines[i])
+		if vw > col {
+			continue
+		}
+		lines[i] += strings.Repeat(" ", col-vw) + stDim.Render(r)
+	}
+	return strings.Join(lines, "\n")
+}
+
 type model struct {
-	vp      viewport.Model
-	ti      textinput.Model
-	user    string
-	history []string
-	hIdx    int
-	lines   []string
-	height  int
-	quitting bool
+	vp          viewport.Model
+	ti          textinput.Model
+	user        string
+	history     []string
+	hIdx        int
+	lines       []string
+	height      int
+	quitting    bool
+	mascotOn    bool
+	mascotBlink bool
+	doubleTake  bool
+	hasBlink    bool
+	blinkDone   bool
+	mascotOff   time.Time
+	nextPeek    time.Time
+	blinkAt     time.Time
+	blinkEnd    time.Time
 }
 
 func newModel(user string, authed bool) model {
@@ -65,6 +118,7 @@ func newModel(user string, authed bool) model {
 	vp := viewport.New(80, 20)
 
 	m := model{vp: vp, ti: ti, user: user, hIdx: -1}
+	m.nextPeek = time.Now().Add(6 * time.Second)
 
 	var boot []string
 	for _, runs := range content.Boot {
@@ -97,7 +151,7 @@ func (m *model) refresh() {
 }
 
 func (m model) Init() tea.Cmd {
-	return textinput.Blink
+	return tea.Batch(textinput.Blink, mascotTick())
 }
 
 func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
@@ -115,6 +169,39 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		}
 		m.refresh()
 		return m, nil
+
+	case mascotMsg:
+		now := time.Now()
+		if m.mascotOn {
+			if m.mascotBlink && now.After(m.blinkEnd) {
+				m.mascotBlink = false
+			}
+			if m.hasBlink && !m.blinkDone && now.After(m.blinkAt) {
+				m.mascotBlink = true
+				m.blinkDone = true
+			}
+			if now.After(m.mascotOff) {
+				m.mascotOn = false
+				if m.doubleTake {
+					m.nextPeek = now.Add(500 * time.Millisecond)
+				} else {
+					m.nextPeek = now.Add(time.Duration(14+rand.Intn(24)) * time.Second)
+				}
+			}
+		} else if now.After(m.nextPeek) {
+			m.mascotOn = true
+			hold := 1800 + rand.Intn(1800)
+			m.mascotOff = now.Add(time.Duration(hold) * time.Millisecond)
+			m.doubleTake = rand.Intn(100) < 20
+			m.hasBlink = rand.Intn(100) < 60
+			m.blinkDone = false
+			m.mascotBlink = false
+			if m.hasBlink {
+				m.blinkAt = now.Add(time.Duration(500+rand.Intn(hold-700)) * time.Millisecond)
+				m.blinkEnd = m.blinkAt.Add(180 * time.Millisecond)
+			}
+		}
+		return m, mascotTick()
 
 	case tea.KeyMsg:
 		switch msg.Type {
@@ -184,5 +271,13 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 }
 
 func (m model) View() string {
-	return m.vp.View() + "\n" + m.ti.View()
+	view := m.vp.View() + "\n" + m.ti.View()
+	if m.mascotOn {
+		art := content.Mascot
+		if m.mascotBlink && content.MascotBlink != "" {
+			art = content.MascotBlink
+		}
+		view = overlayMascot(view, m.vp.Width, art)
+	}
+	return view
 }

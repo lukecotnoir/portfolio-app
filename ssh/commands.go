@@ -17,6 +17,8 @@ type Content struct {
 	Banner       string              `json:"banner"`
 	Detective    string              `json:"detective"`
 	NeofetchLogo string              `json:"neofetchLogo"`
+	Mascot       string              `json:"mascot"`
+	MascotBlink  string              `json:"mascotBlink"`
 	Boot         [][]Run             `json:"boot"`
 	AfterBanner  [][]Run             `json:"afterBanner"`
 	Files        []string            `json:"files"`
@@ -75,9 +77,13 @@ func neofetchLines() []string {
 		{"theme", "bone-on-black"}, {"icons", "none. we use text."},
 	}
 	var art []string
+	mw := 0
 	for _, l := range strings.Split(content.NeofetchLogo, "\n") {
 		if len(l) > 0 {
 			art = append(art, l)
+		}
+		if len([]rune(l)) > mw {
+			mw = len([]rune(l))
 		}
 	}
 	head := "guest@lcotnoir"
@@ -91,7 +97,7 @@ func neofetchLines() []string {
 		if i < len(art) {
 			a = art[i]
 		}
-		left := stArtDark.Render(fmt.Sprintf("%-14s", a))
+		left := stArtDark.Render(fmt.Sprintf("%-*s", mw+4, a))
 		var right string
 		switch {
 		case i == 0:
@@ -271,6 +277,9 @@ func dispatch(raw string) (lines []string, quit bool) {
 		return []string{stDim.Render("one theme. it is called noir.")}, false
 	case "rm":
 		return []string{stRed.Render("rm: refused. this is a portfolio, not a prod box.")}, false
+	case "peek", "mascot":
+		out := append(artLines(content.Mascot), stDim.Render("he sees you."))
+		return out, false
 	case "games":
 		return []string{stDim.Render("overwatch · wow · hollow knight.")}, false
 	case "music":
@@ -291,7 +300,7 @@ var cmdNames = []string{
 	"education", "interests", "hobbies", "contact", "hire", "ls", "cat", "resume",
 	"neofetch", "htop", "man", "clearance", "sudo", "ssh", "exit", "logout",
 	"quit", "echo", "pwd", "date", "uname", "id", "ping", "clear", "cls",
-	"vim", "emacs", "nano", "coffee", "theme", "rm", "games", "music",
+	"vim", "emacs", "nano", "coffee", "theme", "rm", "games", "music", "peek",
 }
 
 func complete(v string) string {

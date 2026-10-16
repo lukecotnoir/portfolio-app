@@ -6,6 +6,10 @@
   </div>
 </div>
 
+<div class="mascot-clip" aria-hidden="true">
+  <pre class="mascot" [class.peek]="peek()">{{ blink() ? mascotBlinkArt() : mascotArt() }}</pre>
+</div>
+
 <main id="terminal" #scroll aria-label="Interactive terminal portfolio">
   <div id="output" role="log" aria-live="polite">
     @for (line of output(); track $index) {
