@@ -73,7 +73,7 @@ body {
   top: 36px;
   right: 22px;
   font-size: 10px;
-  height: 10.4em;              /* exactly the sprite rows — his ledge sits on the sill */
+  height: 10.5em;              /* exactly the sprite rows — his ledge sits on the sill */
   overflow: hidden;
   z-index: 45;
   pointer-events: none;
@@ -116,7 +116,8 @@ body {
 .run.key { color: var(--accent); }
 .run.banner { color: var(--fg-bright); text-shadow: 0 0 14px rgba(217,160,91,.16); }
 .run.art { color: var(--accent-dim); }
-.run.artdark { color: var(--fg); font-size: 10px; line-height: 1.15; }
+.run.artdark { color: var(--fg); }
+.line.artline { font-size: 10px; line-height: 1.15; min-height: 0; }
 a.run { color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent-dim); }
 a.run:hover { color: var(--fg-bright); border-bottom-style: solid; }
 

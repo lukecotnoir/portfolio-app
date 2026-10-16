@@ -23,6 +23,7 @@ export class TerminalComponent implements OnInit, AfterViewInit {
   protected readonly mascotFrames = signal<string[]>([]);
   protected readonly frameIdx = signal(0);
   protected readonly peek = signal(false);
+  protected readonly mascotDisplay = signal('');
 
   private input = viewChild<ElementRef<HTMLInputElement>>('kbd');
   private scroller = viewChild<ElementRef<HTMLElement>>('scroll');
@@ -47,7 +48,7 @@ export class TerminalComponent implements OnInit, AfterViewInit {
     const c = this.cmds.content;
     this.mascotFrames.set([c.mascot, c.mascotLeft ?? c.mascot, c.mascotRight ?? c.mascot, c.mascotBlink ?? c.mascot]);
     this.schedulePeek(5000 + Math.random() * 5000);
-    this.startGlitchLoop();
+    this.startShimmer();
     await this.boot();
     this.ready.set(true);
     this.focus();
@@ -80,47 +81,47 @@ export class TerminalComponent implements OnInit, AfterViewInit {
     this.schedulePeek(next);
   }
 
-  /* signal noise: every few seconds a few glyphs in whatever art is on
-     screen briefly corrupt, then heal. */
-  private startGlitchLoop() {
-    const GLYPHS = " .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B$@#%&";
-    const tick = () => {
-      const idxs: number[] = [];
-      this.output().forEach((l, i) => { if (l.cls === 'artline') idxs.push(i); });
-      const bursts = Math.random() < 0.25 && idxs.length > 2 ? 3 : 1;
-      for (let b = 0; b < bursts && idxs.length; b++) {
-        const i = idxs[Math.floor(Math.random() * idxs.length)];
-        const line = this.output()[i];
-        const run = line.runs[0];
-        const chars = run.t.split('');
-        const n = 2 + Math.floor(Math.random() * 6);
-        for (let k = 0; k < n; k++) {
-          const p = Math.floor(Math.random() * chars.length);
-          if (chars[p] !== ' ') {
-            chars[p] = Math.random() < 0.2 ? ' ' : GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
-          }
-        }
-        const corrupt = chars.join('');
+  /* constant static: every ~110ms a few glyphs in the banner and in the
+     mascot's current frame get swapped, so the two art pieces never sit
+     still. everything else stays clean. */
+  private bannerLine: OutLine | null = null;
+  private bannerOrig = '';
+
+  private corrupt(orig: string, glyphs: string, n: number): string {
+    const chars = orig.split('');
+    for (let k = 0; k < n; k++) {
+      const p = Math.floor(Math.random() * chars.length);
+      if (chars[p] !== ' ') {
+        chars[p] = Math.random() < 0.15 ? ' ' : glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+    }
+    return chars.join('');
+  }
+
+  private startShimmer() {
+    const BANNER_G = '\u2588\u2593\u2592\u2591\u2584\u2580';
+    const ART_G = " .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B$@";
+    setInterval(() => {
+      // banner: find/register once, then corrupt from the original each tick
+      if (!this.bannerLine) {
+        const l = this.output().find((x) => x.cls?.includes('bannerline'));
+        if (l && l.runs[0]) { this.bannerLine = l; this.bannerOrig = l.runs[0].t; }
+      } else {
         this.output.update((o) => {
-          const j = o.indexOf(line);
-          if (j < 0) return o;
+          const j = o.indexOf(this.bannerLine!);
+          if (j < 0) { this.bannerLine = null; return o; }
+          const run = this.bannerLine!.runs[0];
           const c = [...o];
-          c[j] = { ...line, runs: [{ ...run, t: corrupt }] };
+          const nl = { ...this.bannerLine!, runs: [{ ...run, t: this.corrupt(this.bannerOrig, BANNER_G, 5) }] };
+          c[j] = nl;
+          this.bannerLine = nl;
           return c;
         });
-        setTimeout(() => {
-          this.output.update((o) => {
-            const j = o.indexOf(line);
-            if (j < 0) return o;
-            const c = [...o];
-            c[j] = { ...line, runs: [run] };
-            return c;
-          });
-        }, 80 + Math.random() * 140);
       }
-      setTimeout(tick, 2200 + Math.random() * 5500);
-    };
-    setTimeout(tick, 4000);
+      // mascot: corrupt its current frame every tick
+      const frame = this.mascotFrames()[this.frameIdx()] ?? '';
+      if (frame) this.mascotDisplay.set(this.corrupt(frame, ART_G, 3));
+    }, 110);
   }
 
   /* ── output ── */
@@ -169,7 +170,7 @@ export class TerminalComponent implements OnInit, AfterViewInit {
     const c = this.cmds.content;
     const skip = sessionStorage.getItem('lc-booted');
     if (skip) {
-      this.push({ runs: [R(c.banner, 'banner')] });
+      this.push({ runs: [R(c.banner, 'banner')], cls: 'bannerline' });
       this.pushText('');
       this.pushText("type 'help'. you know the drill.", 'faint');
       return;
@@ -178,7 +179,7 @@ export class TerminalComponent implements OnInit, AfterViewInit {
     for (const l of c.boot) await this.typeLine(l);
     await sleep(300);
     this.pushText('');
-    this.push({ runs: [R(c.banner, 'banner')], cls: 'glitch' });
+    this.push({ runs: [R(c.banner, 'banner')], cls: 'glitch bannerline' });
     await sleep(400);
     this.pushText('');
     await this.print(c.afterBanner.map((runs) => L(runs)), 40);

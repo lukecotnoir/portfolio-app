@@ -7,13 +7,13 @@
 </div>
 
 <div class="mascot-clip" aria-hidden="true">
-  <pre class="mascot" [class.peek]="peek()">{{ mascotFrames()[frameIdx()] }}</pre>
+  <pre class="mascot" [class.peek]="peek()">{{ mascotDisplay() }}</pre>
 </div>
 
 <main id="terminal" #scroll aria-label="Interactive terminal portfolio">
   <div id="output" role="log" aria-live="polite">
     @for (line of output(); track $index) {
-      <div class="line reveal" [class.echo-line]="line.cls === 'echo-line'" [class.glitch]="line.cls === 'glitch'">
+      <div [class]="'line reveal ' + (line.cls ?? '')">
         @for (run of line.runs; track $index) {
           @if (run.href) {
             <a class="run" [class]="'run ' + (run.s ?? 'body')" [href]="run.href"

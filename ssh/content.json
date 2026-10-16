@@ -1,5 +1,5 @@
 {
-  "banner": "██╗     ██╗   ██╗██╗  ██╗███████╗\n██║     ██║   ██║██║ ██╔╝██╔════╝\n██║     ██║   ██║█████╔╝ █████╗\n██║     ██║   ██║██╔═██╗ ██╔══╝\n███████╗╚██████╔╝██║  ██╗███████╗\n╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝\n ██████╗ ██████╗ ████████╗███╗   ██╗ ██████╗ ██╗██████╗\n██╔════╝██╔═══██╗╚══██╔══╝████╗  ██║██╔═══██╗██║██╔══██╗\n██║     ██║   ██║   ██║   ██╔██╗ ██║██║   ██║██║██████╔╝\n██║     ██║   ██║   ██║   ██║╚██╗██║██║   ██║██║██╔══██╗\n╚██████╗╚██████╔╝   ██║   ██║ ╚████║╚██████╔╝██║██║  ██║\n ╚═════╝ ╚═════╝    ╚═╝   ╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝",
+  "banner": "\u2588\u2588\u2557     \u2588\u2588\u2557   \u2588\u2588\u2557\u2588\u2588\u2557  \u2588\u2588\u2557\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2557\n\u2588\u2588\u2551     \u2588\u2588\u2551   \u2588\u2588\u2551\u2588\u2588\u2551 \u2588\u2588\u2554\u255d\u2588\u2588\u2554\u2550\u2550\u2550\u2550\u255d\n\u2588\u2588\u2551     \u2588\u2588\u2551   \u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2588\u2554\u255d \u2588\u2588\u2588\u2588\u2588\u2557\n\u2588\u2588\u2551     \u2588\u2588\u2551   \u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2588\u2588\u2557 \u2588\u2588\u2554\u2550\u2550\u255d\n\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2557\u255a\u2588\u2588\u2588\u2588\u2588\u2588\u2554\u255d\u2588\u2588\u2551  \u2588\u2588\u2557\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2557\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u255d \u255a\u2550\u2550\u2550\u2550\u2550\u255d \u255a\u2550\u255d  \u255a\u2550\u255d\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u255d\n \u2588\u2588\u2588\u2588\u2588\u2588\u2557 \u2588\u2588\u2588\u2588\u2588\u2588\u2557 \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2557\u2588\u2588\u2588\u2557   \u2588\u2588\u2557 \u2588\u2588\u2588\u2588\u2588\u2588\u2557 \u2588\u2588\u2557\u2588\u2588\u2588\u2588\u2588\u2588\u2557\n\u2588\u2588\u2554\u2550\u2550\u2550\u2550\u255d\u2588\u2588\u2554\u2550\u2550\u2550\u2588\u2588\u2557\u255a\u2550\u2550\u2588\u2588\u2554\u2550\u2550\u255d\u2588\u2588\u2588\u2588\u2557  \u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2550\u2588\u2588\u2557\u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\n\u2588\u2588\u2551     \u2588\u2588\u2551   \u2588\u2588\u2551   \u2588\u2588\u2551   \u2588\u2588\u2554\u2588\u2588\u2557 \u2588\u2588\u2551\u2588\u2588\u2551   \u2588\u2588\u2551\u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2588\u2588\u2554\u255d\n\u2588\u2588\u2551     \u2588\u2588\u2551   \u2588\u2588\u2551   \u2588\u2588\u2551   \u2588\u2588\u2551\u255a\u2588\u2588\u2557\u2588\u2588\u2551\u2588\u2588\u2551   \u2588\u2588\u2551\u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\n\u255a\u2588\u2588\u2588\u2588\u2588\u2588\u2557\u255a\u2588\u2588\u2588\u2588\u2588\u2588\u2554\u255d   \u2588\u2588\u2551   \u2588\u2588\u2551 \u255a\u2588\u2588\u2588\u2588\u2551\u255a\u2588\u2588\u2588\u2588\u2588\u2588\u2554\u255d\u2588\u2588\u2551\u2588\u2588\u2551  \u2588\u2588\u2551\n \u255a\u2550\u2550\u2550\u2550\u2550\u255d \u255a\u2550\u2550\u2550\u2550\u2550\u255d    \u255a\u2550\u255d   \u255a\u2550\u255d  \u255a\u2550\u2550\u2550\u255d \u255a\u2550\u2550\u2550\u2550\u2550\u255d \u255a\u2550\u255d  \u255a\u2550\u255d",
   "detective": "                          _(jnvcj+\n               !1/\\\\\\|)}{tnf{?[fLZf\n              -f1;       -jt>   ~Cq/\n             <r)          |OdOcjuwWm-\n             jmU|}}?;      [Ua%@@@@Bz\n            iQ%M0j-         I{rUZmmq0{\n            ?w*C{                  >jx>\n            |Oz>                    -f{   ;l!\n            jZj             <}/xzQwdh#bCnttvJu~\n        >-{rp&omCn{l        }u0ph*&%WhZc)__{{i\n    I|cLpaMB@@%hC\\i        +)rvcur|-l;!\n     ?{}}{)\\fjf|{]+iI    I!i!I   +j\\l+t[\n             <  I              +\\ck#Crj+\n             {fzJ1       !/\\>  [Yh@@hQr~\n            !)jvZU>      )dhn!  [Z%ou]]/)\n          >(\\- IxY?      (mbz[}rzJdC>  >jr<\n        !\\r1    ]uvu{     )YCUZW8dL/    <nz[\n       (cj~      {LkY!    ]nXvQ*#O/      ?YL(\n     ?cUj+        ~rji    _/njjcux(      l\\L0t\n   !nmpmQz)l        i     {vzr))vCfl    I{xUwwnl\n   }Y0OwbpLti      I>      _1jUm0n{-[\\f(}j0dbbwx;\n     ~fQqLx(+      I1|_;   >tJZY[   ItOOx|jUqpU1\n l1vZ*&aX-   I      +uUf<  (Ur~       vpY[i{Ub*hOn];\nmbha8%w1   i?-       }\\<   -nfi       ~xt~  -jO&$%Wh\nvf)fv)   {jf[         i    I(YjI       l<<    {Y0cvU\n   >  _rJ0Y\\~         ?1I  I1XmU1l   l>!<1t(~  <|}\n    _zLUvrxf_                -/uuj/\\)]l  [vOZY/+l!\n    >rYx1)\\?            I-)jcn];         ?jUOmL|\n      [nr{>         -fvXULLYLqwu!        [rcXr_\n       l(/+       ~fcYCYt?~ll?xv]       i(xx{\n         +]!     \\whwOZOUccUCUn-       I[\\)>\n           !    \\dhLn)1jzufrnvf>       +}_\n              !rbhc<  [zLUvuXX|       l<\n         I}|{\\LakU)l   itYznuf~\n      >\\Jbpr-rYr\\?;     }uXXu}\n   ~1fYOm0/  //;         !<l\n  <-<<-_~i   {|l\n             I?~\n               !",
   "neofetchLogo": "        ,i_~; ,>[?:\n      +|CbbY-   i}[>\n     +/LaaC}      l]~\n     |Yr?:      ,[nr-\n     -ur1-:   l{cOL/:\n       ,1JLr]_?)uc{\n         :<>    ,})i\n                  l}1>\n                   l)\\~\n                     !?+\n                      <<",
   "boot": [
@@ -25,13 +25,13 @@
   "afterBanner": [
     [
       {
-        "t": "full-stack engineer · secure systems · norfolk, va",
+        "t": "full-stack engineer \u00b7 secure systems \u00b7 norfolk, va",
         "s": "dim"
       }
     ],
     [
       {
-        "t": "type `help` — or click a command below",
+        "t": "type `help` \u2014 or click a command below",
         "s": "accent"
       }
     ]
@@ -56,12 +56,12 @@
       ],
       [
         {
-          "t": "full-stack software engineer · norfolk, va"
+          "t": "full-stack software engineer \u00b7 norfolk, va"
         }
       ],
       [
         {
-          "t": "active TS/SCI — full scope poly",
+          "t": "active TS/SCI \u2014 full scope poly",
           "s": "accent"
         }
       ],
@@ -106,12 +106,12 @@
       ],
       [
         {
-          "t": "full-stack software engineer · norfolk, va / hybrid"
+          "t": "full-stack software engineer \u00b7 norfolk, va / hybrid"
         }
       ],
       [
         {
-          "t": "jun 2025 → present",
+          "t": "jun 2025 \u2192 present",
           "s": "accent"
         }
       ],
@@ -122,12 +122,12 @@
       ],
       [
         {
-          "t": "  ▸ cut analyst source-citation review time from weeks to a few"
+          "t": "  \u25b8 cut analyst source-citation review time from weeks to a few"
         }
       ],
       [
         {
-          "t": "    hours — dynamic citation management, classification roll-up,"
+          "t": "    hours \u2014 dynamic citation management, classification roll-up,"
         }
       ],
       [
@@ -137,7 +137,7 @@
       ],
       [
         {
-          "t": "  ▸ owned a backend module overhaul design → production as"
+          "t": "  \u25b8 owned a backend module overhaul design \u2192 production as"
         }
       ],
       [
@@ -147,7 +147,7 @@
       ],
       [
         {
-          "t": "  ▸ shipped 8 containerized services into 4 classified and"
+          "t": "  \u25b8 shipped 8 containerized services into 4 classified and"
         }
       ],
       [
@@ -157,7 +157,7 @@
       ],
       [
         {
-          "t": "  ▸ leading the react → angular 21 migration of a production"
+          "t": "  \u25b8 leading the react \u2192 angular 21 migration of a production"
         }
       ],
       [
@@ -178,12 +178,12 @@
       ],
       [
         {
-          "t": "software engineer intern · chantilly, va"
+          "t": "software engineer intern \u00b7 chantilly, va"
         }
       ],
       [
         {
-          "t": "summer 2023 · summer 2024",
+          "t": "summer 2023 \u00b7 summer 2024",
           "s": "accent"
         }
       ],
@@ -194,7 +194,7 @@
       ],
       [
         {
-          "t": "  ▸ prototyped an autoscaling container-scanning pipeline:"
+          "t": "  \u25b8 prototyped an autoscaling container-scanning pipeline:"
         }
       ],
       [
@@ -204,12 +204,12 @@
       ],
       [
         {
-          "t": "  ▸ wrote the docs, presented the prototype, aligned stakeholders."
+          "t": "  \u25b8 wrote the docs, presented the prototype, aligned stakeholders."
         }
       ],
       [
         {
-          "t": "  ▸ automated an internal onboarding tool that replaced email workflows."
+          "t": "  \u25b8 automated an internal onboarding tool that replaced email workflows."
         }
       ]
     ],
@@ -220,7 +220,7 @@
           "s": "key"
         },
         {
-          "t": "    java · python · typescript · c++",
+          "t": "    java \u00b7 python \u00b7 typescript \u00b7 c++",
           "s": "dim"
         }
       ],
@@ -230,7 +230,7 @@
           "s": "key"
         },
         {
-          "t": "      spring boot · rest apis · oauth",
+          "t": "      spring boot \u00b7 rest apis \u00b7 oauth",
           "s": "dim"
         }
       ],
@@ -240,7 +240,7 @@
           "s": "key"
         },
         {
-          "t": "  docker · kubernetes · aws · aws govcloud · platform one",
+          "t": "  docker \u00b7 kubernetes \u00b7 aws \u00b7 aws govcloud \u00b7 platform one",
           "s": "dim"
         }
       ],
@@ -250,7 +250,7 @@
           "s": "key"
         },
         {
-          "t": "        postgresql · mysql · rdf4j",
+          "t": "        postgresql \u00b7 mysql \u00b7 rdf4j",
           "s": "dim"
         }
       ],
@@ -260,7 +260,7 @@
           "s": "key"
         },
         {
-          "t": "    angular 21 · react",
+          "t": "    angular 21 \u00b7 react",
           "s": "dim"
         }
       ],
@@ -270,7 +270,7 @@
           "s": "key"
         },
         {
-          "t": "     agile · tdd · rest · microservices",
+          "t": "     agile \u00b7 tdd \u00b7 rest \u00b7 microservices",
           "s": "dim"
         }
       ],
@@ -299,12 +299,12 @@
       ],
       [
         {
-          "t": "b.s. computer science · minor: information science"
+          "t": "b.s. computer science \u00b7 minor: information science"
         }
       ],
       [
         {
-          "t": "newport news, va · may 2025",
+          "t": "newport news, va \u00b7 may 2025",
           "s": "dim"
         }
       ],
@@ -333,7 +333,7 @@
           "s": "key"
         },
         {
-          "t": "     crate-digging · ex-producer · guitar"
+          "t": "     crate-digging \u00b7 ex-producer \u00b7 guitar"
         }
       ],
       [
@@ -342,7 +342,7 @@
           "s": "key"
         },
         {
-          "t": "     overwatch · wow · hollow knight"
+          "t": "     overwatch \u00b7 wow \u00b7 hollow knight"
         }
       ],
       [
@@ -351,7 +351,7 @@
           "s": "key"
         },
         {
-          "t": "      weightlifting · indoor bouldering"
+          "t": "      weightlifting \u00b7 indoor bouldering"
         }
       ],
       [
@@ -360,7 +360,7 @@
           "s": "key"
         },
         {
-          "t": "    cars — always cars"
+          "t": "    cars \u2014 always cars"
         }
       ],
       [
@@ -378,7 +378,7 @@
           "s": "key"
         },
         {
-          "t": "    classic architecture · zillow, recreationally"
+          "t": "    classic architecture \u00b7 zillow, recreationally"
         }
       ]
     ],
@@ -435,17 +435,17 @@
     "hire": [
       [
         {
-          "t": "  → builds secure full-stack systems for the IC"
+          "t": "  \u2192 builds secure full-stack systems for the IC"
         }
       ],
       [
         {
-          "t": "  → ships production angular + spring boot"
+          "t": "  \u2192 ships production angular + spring boot"
         }
       ],
       [
         {
-          "t": "  → holds the clearance most teams wait a year for"
+          "t": "  \u2192 holds the clearance most teams wait a year for"
         }
       ],
       [
@@ -493,13 +493,13 @@
       ]
     ],
     "extras": [
-      "ls · cat · neofetch · man luke · htop · peek",
-      "hire · clearance · sudo · exit"
+      "ls \u00b7 cat \u00b7 neofetch \u00b7 man luke \u00b7 htop \u00b7 peek",
+      "hire \u00b7 clearance \u00b7 sudo \u00b7 exit"
     ],
-    "footer": "tab completes. ↑/↓ recalls history. ctrl+l clears."
+    "footer": "tab completes. \u2191/\u2193 recalls history. ctrl+l clears."
   },
-  "mascot": "      ██████\n    ██████████\n    ██▒▒▒▒▒▒██\n  ██████████████\n\n      ██      ██\n      ██      ██\n████████████████████\n ██ ██   ██   ██ ██",
-  "mascotBlink": "      ██████\n    ██████████\n    ██▒▒▒▒▒▒██\n  ██████████████\n\n      ▄▄      ▄▄\n      ▄▄      ▄▄\n████████████████████\n ██ ██   ██   ██ ██",
-  "mascotLeft": "      ██████\n    ██████████\n    ██▒▒▒▒▒▒██\n  ██████████████\n\n    ██      ██\n    ██      ██\n████████████████████\n ██ ██   ██   ██ ██",
-  "mascotRight": "      ██████\n    ██████████\n    ██▒▒▒▒▒▒██\n  ██████████████\n\n        ██      ██\n        ██      ██\n████████████████████\n ██ ██   ██   ██ ██"
+  "mascot": "            >{{-+1cmO|\n          ^)J*@@%8@@@8n^\n         ;uphM&Wohhho*O[\n         >xXurfffjjjjt1~\n       ^_fzJQ0000QL0mmQCYu\\?I\n    ,-(jnunuJY(I  >fc\\+~](//{;\n    ~}]~:  n*kf_]|O&b|   ^^\n   i-?][]-1JapUQdpqhdY|?-?-___i\n    ^\"\"\"\"\"\"\",,;II:^^;I:\"\"\"\",,\"",
+  "mascotBlink": "            >{{-+1cmO|\n          ^)J*@@%8@@@8n^\n         ;uphM&Wohhho*O[\n         >nYvxfffjjjjt1~\n       ^_fuvXCQ00QLQQQLJYu\\?I\n    ,-(jnuf)))[!  \">_-_+[(//{;\n    ~}]~:  ,~+~~]?~+_+:  ^^\n   i-?][]-?1fffUpmvjrf{--?-___i\n    ^\"\"\"\"\",:II;II;,;lI,\"\"\"\",,\"",
+  "mascotLeft": "            >{{-+1cmO|\n          ^)J*@@%8@@@8n^\n         ;uphM&Wohhho*O[\n         <nYvxfffjjjjt1~\n       ^_/nzUL00QQOmZ0LCYu\\?I\n    ,-(jnxvJc{i^,[nx];l~](//{;\n    ~}]~;_0#Q? lrhWL-    ^^\n   i-?][[\\CqOznCdob0Yx1?-?-___i\n    ^\"\"\"\"^ ^;I;I;\"^:lI,\"\"\"\",,\"",
+  "mascotRight": "            >{{-+1cmO|\n          ^)J*@@%8@@@8n^\n         ;uphM8Wohhho*O[\n         >nXurfffjjjjt1<\n       ^_fuzLwmOQQQQOZOLYu\\?I\n    ,-(jnn/}\\zU/!  I|zu)[(//{;\n    ~}]~:   {p*U[<!fa#v; ^^\n   i-?][]-?|Jkk0QQzJhbc1]?-___i\n    ^\"\"\"\"\",:;,\";l;,,,,,,\"\"\",,\""
 }
