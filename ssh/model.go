@@ -98,7 +98,8 @@ type model struct {
 	height      int
 	quitting    bool
 	mascotOn    bool
-	mascotBlink bool
+	mascotFrame int
+	peekTicks   int
 	doubleTake  bool
 	hasBlink    bool
 	blinkDone   bool
@@ -106,6 +107,7 @@ type model struct {
 	nextPeek    time.Time
 	blinkAt     time.Time
 	blinkEnd    time.Time
+	blinking    bool
 }
 
 func newModel(user string, authed bool) model {
@@ -173,11 +175,23 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case mascotMsg:
 		now := time.Now()
 		if m.mascotOn {
-			if m.mascotBlink && now.After(m.blinkEnd) {
-				m.mascotBlink = false
+			m.peekTicks++
+			// eyes: center ~0.8s -> left -> right -> center
+			switch {
+			case m.peekTicks < 2:
+				m.mascotFrame = 0
+			case m.peekTicks < 4:
+				m.mascotFrame = 1
+			case m.peekTicks < 6:
+				m.mascotFrame = 2
+			default:
+				m.mascotFrame = 0
+			}
+			if m.blinking && now.After(m.blinkEnd) {
+				m.blinking = false
 			}
 			if m.hasBlink && !m.blinkDone && now.After(m.blinkAt) {
-				m.mascotBlink = true
+				m.blinking = true
 				m.blinkDone = true
 			}
 			if now.After(m.mascotOff) {
@@ -190,14 +204,16 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 		} else if now.After(m.nextPeek) {
 			m.mascotOn = true
-			hold := 1800 + rand.Intn(1800)
+			m.mascotFrame = 0
+			m.peekTicks = 0
+			hold := 2600 + rand.Intn(1600)
 			m.mascotOff = now.Add(time.Duration(hold) * time.Millisecond)
 			m.doubleTake = rand.Intn(100) < 20
 			m.hasBlink = rand.Intn(100) < 60
 			m.blinkDone = false
-			m.mascotBlink = false
+			m.blinking = false
 			if m.hasBlink {
-				m.blinkAt = now.Add(time.Duration(500+rand.Intn(hold-700)) * time.Millisecond)
+				m.blinkAt = now.Add(time.Duration(2200+rand.Intn(hold-2400)) * time.Millisecond)
 				m.blinkEnd = m.blinkAt.Add(180 * time.Millisecond)
 			}
 		}
@@ -273,9 +289,14 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 func (m model) View() string {
 	view := m.vp.View() + "\n" + m.ti.View()
 	if m.mascotOn {
+		arts := []string{content.Mascot, content.MascotLeft, content.MascotRight, content.MascotBlink}
 		art := content.Mascot
-		if m.mascotBlink && content.MascotBlink != "" {
-			art = content.MascotBlink
+		idx := m.mascotFrame
+		if m.blinking {
+			idx = 3
+		}
+		if idx >= 0 && idx < len(arts) && arts[idx] != "" {
+			art = arts[idx]
 		}
 		view = overlayMascot(view, m.vp.Width, art)
 	}

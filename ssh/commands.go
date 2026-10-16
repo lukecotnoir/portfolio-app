@@ -18,6 +18,8 @@ type Content struct {
 	Detective    string              `json:"detective"`
 	NeofetchLogo string              `json:"neofetchLogo"`
 	Mascot       string              `json:"mascot"`
+	MascotLeft   string              `json:"mascotLeft"`
+	MascotRight  string              `json:"mascotRight"`
 	MascotBlink  string              `json:"mascotBlink"`
 	Boot         [][]Run             `json:"boot"`
 	AfterBanner  [][]Run             `json:"afterBanner"`

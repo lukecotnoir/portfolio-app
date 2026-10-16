@@ -20,10 +20,9 @@ export class TerminalComponent implements OnInit, AfterViewInit {
   protected readonly pos = signal(0);
   protected readonly clock = signal('--:--');
   protected readonly ready = signal(false);
-  protected readonly mascotArt = signal('');
-  protected readonly mascotBlinkArt = signal('');
+  protected readonly mascotFrames = signal<string[]>([]);
+  protected readonly frameIdx = signal(0);
   protected readonly peek = signal(false);
-  protected readonly blink = signal(false);
 
   private input = viewChild<ElementRef<HTMLInputElement>>('kbd');
   private scroller = viewChild<ElementRef<HTMLElement>>('scroll');
@@ -45,36 +44,83 @@ export class TerminalComponent implements OnInit, AfterViewInit {
 
   async ngAfterViewInit() {
     await this.cmds.load();
-    this.mascotArt.set(this.cmds.content.mascot);
-    this.mascotBlinkArt.set(this.cmds.content.mascotBlink ?? this.cmds.content.mascot);
+    const c = this.cmds.content;
+    this.mascotFrames.set([c.mascot, c.mascotLeft ?? c.mascot, c.mascotRight ?? c.mascot, c.mascotBlink ?? c.mascot]);
     this.schedulePeek(5000 + Math.random() * 5000);
+    this.startGlitchLoop();
     await this.boot();
     this.ready.set(true);
     this.focus();
   }
 
-  /* the detective in the corner: rises over the sill, blinks, ducks back.
-     ~1 in 5 visits he does a double take. */
+  /* the detective in the corner: rises over the sill, looks left, looks
+     right, and ducks back out. ~1 in 5 visits he does a double take. */
   private schedulePeek(delay: number) {
     setTimeout(() => void this.doPeek(), delay);
   }
 
   private async doPeek() {
+    const f = this.frameIdx;
     this.peek.set(true);
-    const hold = 1600 + Math.random() * 1800;
-    if (Math.random() < 0.55) {
-      const at = 500 + Math.random() * Math.max(400, hold - 800);
-      setTimeout(() => {
-        this.blink.set(true);
-        setTimeout(() => this.blink.set(false), 160);
-      }, at);
+    f.set(0);
+    await sleep(650); f.set(1);                 // eyes left
+    await sleep(550); f.set(2);                 // eyes right
+    await sleep(550); f.set(0);                 // back to you
+    if (Math.random() < 0.35) {
+      await sleep(200); f.set(3);               // blink
+      await sleep(170); f.set(0);
+      await sleep(280);
+    } else {
+      await sleep(400);
     }
-    await sleep(hold);
     this.peek.set(false);
     const next = Math.random() < 0.22
-      ? 500 + Math.random() * 800
+      ? 550 + Math.random() * 800
       : 14000 + Math.random() * 26000;
     this.schedulePeek(next);
+  }
+
+  /* signal noise: every few seconds a few glyphs in whatever art is on
+     screen briefly corrupt, then heal. */
+  private startGlitchLoop() {
+    const GLYPHS = " .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B$@#%&";
+    const tick = () => {
+      const idxs: number[] = [];
+      this.output().forEach((l, i) => { if (l.cls === 'artline') idxs.push(i); });
+      const bursts = Math.random() < 0.25 && idxs.length > 2 ? 3 : 1;
+      for (let b = 0; b < bursts && idxs.length; b++) {
+        const i = idxs[Math.floor(Math.random() * idxs.length)];
+        const line = this.output()[i];
+        const run = line.runs[0];
+        const chars = run.t.split('');
+        const n = 2 + Math.floor(Math.random() * 6);
+        for (let k = 0; k < n; k++) {
+          const p = Math.floor(Math.random() * chars.length);
+          if (chars[p] !== ' ') {
+            chars[p] = Math.random() < 0.2 ? ' ' : GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+          }
+        }
+        const corrupt = chars.join('');
+        this.output.update((o) => {
+          const j = o.indexOf(line);
+          if (j < 0) return o;
+          const c = [...o];
+          c[j] = { ...line, runs: [{ ...run, t: corrupt }] };
+          return c;
+        });
+        setTimeout(() => {
+          this.output.update((o) => {
+            const j = o.indexOf(line);
+            if (j < 0) return o;
+            const c = [...o];
+            c[j] = { ...line, runs: [run] };
+            return c;
+          });
+        }, 80 + Math.random() * 140);
+      }
+      setTimeout(tick, 2200 + Math.random() * 5500);
+    };
+    setTimeout(tick, 4000);
   }
 
   /* ── output ── */

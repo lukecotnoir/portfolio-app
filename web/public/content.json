@@ -498,6 +498,8 @@
     ],
     "footer": "tab completes. ↑/↓ recalls history. ctrl+l clears."
   },
-  "mascot": "             >>; >\\Uz_\n           +xdBBM*%@@o)\n          )Lmkohpmmmppzl\n          1t({[][[}}[?<\n        :[/xvzzzcvuzUYvnf)-I\n     ;+})(1(xj+    [|-  l+?->\n     il    1pO[:l_zo0_\n    ;Illl;>xwLrv0LCm0f_I;I;:::",
-  "mascotBlink": "             >>; >\\Uz_\n           +xdBBM*%@@o)\n          )Lmkohpmmmppzl\n          1t({[][[}}[?<\n        :[/xvzzzcvuzUYvnf)-I\n     ;+})(1(xj+    [|-  l+?->\n     il    1--[:l_---_\n    ;Illl;>xwLrv0LCm0f_I;I;:::"
+  "mascot": "      ██████\n    ██████████\n    ██▒▒▒▒▒▒██\n  ██████████████\n\n      ██      ██\n      ██      ██\n████████████████████\n ██ ██   ██   ██ ██",
+  "mascotBlink": "      ██████\n    ██████████\n    ██▒▒▒▒▒▒██\n  ██████████████\n\n      ▄▄      ▄▄\n      ▄▄      ▄▄\n████████████████████\n ██ ██   ██   ██ ██",
+  "mascotLeft": "      ██████\n    ██████████\n    ██▒▒▒▒▒▒██\n  ██████████████\n\n    ██      ██\n    ██      ██\n████████████████████\n ██ ██   ██   ██ ██",
+  "mascotRight": "      ██████\n    ██████████\n    ██▒▒▒▒▒▒██\n  ██████████████\n\n        ██      ██\n        ██      ██\n████████████████████\n ██ ██   ██   ██ ██"
 }

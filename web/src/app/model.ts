@@ -21,6 +21,8 @@ export interface Content {
   detective: string;
   neofetchLogo: string;
   mascot: string;
+  mascotLeft?: string;
+  mascotRight?: string;
   mascotBlink?: string;
   boot: Line[];
   afterBanner: Line[];

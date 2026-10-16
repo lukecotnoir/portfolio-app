@@ -7,7 +7,7 @@
 </div>
 
 <div class="mascot-clip" aria-hidden="true">
-  <pre class="mascot" [class.peek]="peek()">{{ blink() ? mascotBlinkArt() : mascotArt() }}</pre>
+  <pre class="mascot" [class.peek]="peek()">{{ mascotFrames()[frameIdx()] }}</pre>
 </div>
 
 <main id="terminal" #scroll aria-label="Interactive terminal portfolio">

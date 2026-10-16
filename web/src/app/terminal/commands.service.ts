@@ -6,7 +6,7 @@ import { Content, L, OutLine, R, Run, TEXT } from '../model';
 type Cmd = { desc: string; run: (args: string[]) => OutLine[] | 'clear' | 'download' };
 
 const ART_LINE = (art: string, s = 'artdark' as const): OutLine[] =>
-  art.split('\n').map((t) => TEXT(t, s));
+  art.split('\n').map((t) => TEXT(t, s, 'artline'));
 
 const FILES: Record<string, string> = {
   'about.txt': 'about',
