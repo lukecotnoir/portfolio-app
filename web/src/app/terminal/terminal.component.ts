@@ -81,28 +81,32 @@ export class TerminalComponent implements OnInit, AfterViewInit {
     this.schedulePeek(next);
   }
 
-  /* constant static: every ~110ms a few glyphs in the banner and in the
-     mascot's current frame get swapped, so the two art pieces never sit
-     still. everything else stays clean. */
+  /* decode-mode static: every ~75ms EVERY non-space glyph in the banner
+     and the mascot's current frame cycles to a random ramp char. the
+     silhouette holds, every character is always morphing. */
   private bannerLine: OutLine | null = null;
   private bannerOrig = '';
 
-  private corrupt(orig: string, glyphs: string, n: number): string {
+  /* every non-space cell cycles to a glyph of SIMILAR density each tick —
+     the luminance structure survives so letters stay legible while every
+     character visibly morphs. */
+  private scramble(orig: string, glyphs: string): string {
     const chars = orig.split('');
-    for (let k = 0; k < n; k++) {
-      const p = Math.floor(Math.random() * chars.length);
-      if (chars[p] !== ' ') {
-        chars[p] = Math.random() < 0.15 ? ' ' : glyphs[Math.floor(Math.random() * glyphs.length)];
-      }
+    const n = glyphs.length;
+    for (let p = 0; p < chars.length; p++) {
+      const ch = chars[p];
+      if (ch === ' ' || ch === '\n') continue;
+      const i = glyphs.indexOf(ch);
+      if (i < 0) { chars[p] = glyphs[Math.floor(Math.random() * n)]; continue; }
+      const j = Math.max(1, Math.min(n - 1, i + Math.floor((Math.random() * 2 - 1) * 12)));
+      chars[p] = glyphs[j];
     }
     return chars.join('');
   }
 
   private startShimmer() {
-    const BANNER_G = '\u2588\u2593\u2592\u2591\u2584\u2580';
     const ART_G = " .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B$@";
     setInterval(() => {
-      // banner: find/register once, then corrupt from the original each tick
       if (!this.bannerLine) {
         const l = this.output().find((x) => x.cls?.includes('bannerline'));
         if (l && l.runs[0]) { this.bannerLine = l; this.bannerOrig = l.runs[0].t; }
@@ -112,16 +116,15 @@ export class TerminalComponent implements OnInit, AfterViewInit {
           if (j < 0) { this.bannerLine = null; return o; }
           const run = this.bannerLine!.runs[0];
           const c = [...o];
-          const nl = { ...this.bannerLine!, runs: [{ ...run, t: this.corrupt(this.bannerOrig, BANNER_G, 5) }] };
+          const nl = { ...this.bannerLine!, runs: [{ ...run, t: this.scramble(this.bannerOrig, ART_G) }] };
           c[j] = nl;
           this.bannerLine = nl;
           return c;
         });
       }
-      // mascot: corrupt its current frame every tick
       const frame = this.mascotFrames()[this.frameIdx()] ?? '';
-      if (frame) this.mascotDisplay.set(this.corrupt(frame, ART_G, 3));
-    }, 110);
+      if (frame) this.mascotDisplay.set(this.scramble(frame, ART_G));
+    }, 75);
   }
 
   /* ── output ── */
