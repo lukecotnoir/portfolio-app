@@ -226,7 +226,8 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		switch msg.Type {
 		case tea.KeyEnter:
 			raw := strings.TrimSpace(m.ti.Value())
-			if raw == "" {
+			menuPick := raw == ""
+			if menuPick {
 				if m.menuIdx >= 0 && m.menuIdx < len(m.menu) {
 					raw = m.menu[m.menuIdx]
 				} else {
@@ -244,8 +245,16 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				return m, nil
 			}
 			out, quit := dispatch(raw)
-			m.lines = append(m.lines, out...)
+			if menuPick {
+				// page mode: the pane shows just this section
+				m.lines = out
+			} else {
+				m.lines = append(m.lines, out...)
+			}
 			m.refresh()
+			if menuPick {
+				m.vp.GotoTop()
+			}
 			if quit {
 				m.quitting = true
 				return m, tea.Quit
