@@ -97,8 +97,8 @@ type model struct {
 	lines       []string
 	height      int
 	quitting    bool
-	header      string
-	headerH     int
+	menu        []string
+	menuIdx     int
 	mascotOn    bool
 	mascotFrame int
 	peekTicks   int
@@ -124,12 +124,7 @@ func newModel(user string, authed bool) model {
 	m := model{vp: vp, ti: ti, user: user, hIdx: -1}
 	m.nextPeek = time.Now().Add(6 * time.Second)
 
-	b := content.BannerSsh
-	if b == "" {
-		b = content.Banner
-	}
-	m.header = stBanner.Render(b)
-	m.headerH = strings.Count(b, "\n") + 1
+	m.menu = []string{"about", "work", "skills", "edu", "interests", "contact", "resume", "exit"}
 
 	var boot []string
 	for _, runs := range content.Boot {
@@ -165,11 +160,14 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
 	case tea.WindowSizeMsg:
 		if msg.Width > 0 {
-			m.vp.Width = msg.Width
+			m.vp.Width = msg.Width - 18
+			if m.vp.Width < 20 {
+				m.vp.Width = 20
+			}
 		}
 		if msg.Height > 0 {
 			m.height = msg.Height
-			m.vp.Height = msg.Height - m.headerH - 3
+			m.vp.Height = msg.Height - 4
 			if m.vp.Height < 1 {
 				m.vp.Height = 1
 			}
@@ -228,12 +226,15 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		switch msg.Type {
 		case tea.KeyEnter:
 			raw := strings.TrimSpace(m.ti.Value())
+			if raw == "" {
+				if m.menuIdx >= 0 && m.menuIdx < len(m.menu) {
+					raw = m.menu[m.menuIdx]
+				} else {
+					return m, nil
+				}
+			}
 			m.lines = append(m.lines, echoLine(raw))
 			m.ti.SetValue("")
-			if raw == "" {
-				m.refresh()
-				return m, nil
-			}
 			m.history = append(m.history, raw)
 			m.hIdx = len(m.history)
 			low := strings.ToLower(raw)
@@ -252,19 +253,13 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, nil
 
 		case tea.KeyUp:
-			if m.hIdx > 0 {
-				m.hIdx--
-				m.ti.SetValue(m.history[m.hIdx])
+			if m.menuIdx > 0 {
+				m.menuIdx--
 			}
 			return m, nil
 		case tea.KeyDown:
-			if m.hIdx < len(m.history) {
-				m.hIdx++
-				if m.hIdx == len(m.history) {
-					m.ti.SetValue("")
-				} else {
-					m.ti.SetValue(m.history[m.hIdx])
-				}
+			if m.menuIdx < len(m.menu)-1 {
+				m.menuIdx++
 			}
 			return m, nil
 		case tea.KeyCtrlL:
@@ -292,6 +287,21 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 }
 
 func (m model) View() string {
+	hdr := " " + stAccent.Render("L U K E   C O T N O I R") + stDim.Render("   ·   ssh guest terminal") +
+		"\n" + stFaint.Render(strings.Repeat("─", m.vp.Width+17))
+
+	var mb strings.Builder
+	for i, it := range m.menu {
+		if i == m.menuIdx {
+			mb.WriteString(stAccent.Render(" » ") + stBright.Render(it))
+		} else {
+			mb.WriteString(stFaint.Render("   ") + stDim.Render(it))
+		}
+		mb.WriteString("\n")
+	}
+	menuPane := lipgloss.NewStyle().Width(16).Render(mb.String())
+	sep := stFaint.Render(strings.Repeat("│\n", m.vp.Height))
+
 	body := m.vp.View()
 	if m.mascotOn {
 		arts := []string{content.Mascot, content.MascotLeft, content.MascotRight, content.MascotBlink}
@@ -305,5 +315,5 @@ func (m model) View() string {
 		}
 		body = overlayMascot(body, m.vp.Width, art)
 	}
-	return m.header + "\n\n" + body + "\n" + m.ti.View()
+	return hdr + "\n" + lipgloss.JoinHorizontal(lipgloss.Top, menuPane, sep, body) + "\n" + m.ti.View()
 }
