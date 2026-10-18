@@ -236,10 +236,6 @@ export class CommandsService {
 
       games: { desc: 'easter egg', run: () => [TEXT('overwatch · wow · hollow knight.', 'dim')] },
       music: { desc: 'easter egg', run: () => [TEXT('guitar in the corner. always hunting the next album.', 'dim')] },
-      peek: {
-        desc: 'he watches',
-        run: () => [...ART_LINE(c.mascot), TEXT('he sees you.', 'dim')],
-      },
     };
   }
 

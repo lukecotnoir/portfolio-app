@@ -209,6 +209,7 @@ a.run:hover { color: var(--fg-bright); border-bottom-style: solid; }
   backdrop-filter: blur(4px);
   z-index: 41;
   overflow-x: auto;
+  justify-content: center;
 }
 
 .chips-label {

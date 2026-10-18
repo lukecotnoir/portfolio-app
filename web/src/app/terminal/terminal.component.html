@@ -8,10 +8,6 @@
 
 <pre class="banner-fixed" aria-hidden="true">{{ bannerDisplay() }}</pre>
 
-<div class="mascot-clip" aria-hidden="true">
-  <pre class="mascot" [class.peek]="peek()">{{ mascotDisplay() }}</pre>
-</div>
-
 <main id="terminal" #scroll aria-label="Interactive terminal portfolio">
   <div id="output" role="log" aria-live="polite">
     @for (line of output(); track $index) {

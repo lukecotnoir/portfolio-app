@@ -20,10 +20,8 @@ export class TerminalComponent implements OnInit, AfterViewInit {
   protected readonly pos = signal(0);
   protected readonly clock = signal('--:--');
   protected readonly ready = signal(false);
-  protected readonly mascotFrames = signal<string[]>([]);
   protected readonly frameIdx = signal(0);
   protected readonly peek = signal(false);
-  protected readonly mascotDisplay = signal('');
   protected readonly bannerDisplay = signal('');
 
   private input = viewChild<ElementRef<HTMLInputElement>>('kbd');
@@ -48,39 +46,10 @@ export class TerminalComponent implements OnInit, AfterViewInit {
     await this.cmds.load();
     const c = this.cmds.content;
     this.bannerOrig = c.banner;
-    this.mascotFrames.set([c.mascot, c.mascotLeft ?? c.mascot, c.mascotRight ?? c.mascot, c.mascotBlink ?? c.mascot]);
-    this.schedulePeek(5000 + Math.random() * 5000);
     this.startShimmer();
     await this.boot();
     this.ready.set(true);
     this.focus();
-  }
-
-  /* the detective in the corner: rises over the sill, looks left, looks
-     right, and ducks back out. ~1 in 5 visits he does a double take. */
-  private schedulePeek(delay: number) {
-    setTimeout(() => void this.doPeek(), delay);
-  }
-
-  private async doPeek() {
-    const f = this.frameIdx;
-    this.peek.set(true);
-    f.set(0);
-    await sleep(650); f.set(1);                 // eyes left
-    await sleep(550); f.set(2);                 // eyes right
-    await sleep(550); f.set(0);                 // back to you
-    if (Math.random() < 0.35) {
-      await sleep(200); f.set(3);               // blink
-      await sleep(170); f.set(0);
-      await sleep(280);
-    } else {
-      await sleep(400);
-    }
-    this.peek.set(false);
-    const next = Math.random() < 0.22
-      ? 550 + Math.random() * 800
-      : 14000 + Math.random() * 26000;
-    this.schedulePeek(next);
   }
 
   /* decode-mode static: every ~75ms EVERY non-space glyph in the banner
@@ -109,8 +78,6 @@ export class TerminalComponent implements OnInit, AfterViewInit {
     const ART_G = " .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B$@";
     setInterval(() => {
       if (this.bannerOrig) this.bannerDisplay.set(this.scramble(this.bannerOrig, ART_G));
-      const frame = this.mascotFrames()[this.frameIdx()] ?? '';
-      if (frame) this.mascotDisplay.set(this.scramble(frame, ART_G));
     }, 75);
   }
 
