@@ -1,7 +1,7 @@
-# lcotnoir — a portfolio you type into
+# A terminal-ish portfolio
 
-One resume, two front doors: an Angular web app and a Go SSH server,
-both rendering the same terminal over the same content model.
+two ways to access it: an Angular web app and a Go SSH server,
+both rendering the terminal look over the same content model.
 
 ```
                     content/content.json
