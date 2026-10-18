@@ -30,7 +30,7 @@ jobs:
           cache-dependency-path: web/package-lock.json
       - run: cp ../content/content.json public/content.json
       - run: npm ci
-      - run: ng build --base-href /${GITHUB_REPOSITORY#*/}/
+      - run: npx ng build --base-href /${GITHUB_REPOSITORY#*/}/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
