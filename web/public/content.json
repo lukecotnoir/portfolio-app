@@ -1,6 +1,5 @@
 {
   "banner": "  luoWkr      jdW*z<  )0wt  |ZM#C{ {mZn]  )OMMOcvcJL          tOqUnrXZc   IrmwXnXwmjI  LJcYoWoXvJL  rkMm}   1Lqf   <zpOvnJpQ)   ~z#Wpf  >c*WbcYdbYl\n   {@@$+      <W@@/   IZk>  lw@@C1vLJ1    Im@@Q-+j/u         w@@Ci  <Cw  ld@@zI IX@@dI c} [@@@[ }c  +B@@@L+ ICo<  }W@@\\  +p@@Y   t@@#<   \\@@8}?q@@J\n   -@@Bl       M@@(    0d    m@@8$@J-      O@@azUW(         |@@@-        t@@@+   +@@@/    >@@@>     lMOw@@8c?Jh;  O@@kI   t@@@>  (@@*    1@@@cJ%@o(\n   -@@Bi       *@@/   ;Zw    m@@ho@@b|     O@@O??Y+         )@@@[     l  \\@@@-   ?@@@|    >@@@>     l#n>/h@@#oo   L@@al   r@@Bi  (@@*;   1@@@vp@@Z<\n   |@@$(<<1QI  X@@d1<</dr   <p@@C]n*@@w}  <w@@0?~-(L         J@@w[II1ZU   Q@@Q-I-0@@L     {@@@{     [WXI luW@@o   ~k@@u>I1a@%r   r@@M?   j@@8[+Z@@O+\n  lrmpOcnncY    /0wCznn1    1UqwX[ !xwmc[ 1UqqJunncY          ?cLXnrnfI    }cCcncCc[     IjZpZjI    tLv_   <zZn     |UJunXCx<   <nwpQ/  >nwp0t lzm0f",
-  "detective": "                          _(jnvcj+\n               !1/\\\\\\|)}{tnf{?[fLZf\n              -f1;       -jt>   ~Cq/\n             <r)          |OdOcjuwWm-\n             jmU|}}?;      [Ua%@@@@Bz\n            iQ%M0j-         I{rUZmmq0{\n            ?w*C{                  >jx>\n            |Oz>                    -f{   ;l!\n            jZj             <}/xzQwdh#bCnttvJu~\n        >-{rp&omCn{l        }u0ph*&%WhZc)__{{i\n    I|cLpaMB@@%hC\\i        +)rvcur|-l;!\n     ?{}}{)\\fjf|{]+iI    I!i!I   +j\\l+t[\n             <  I              +\\ck#Crj+\n             {fzJ1       !/\\>  [Yh@@hQr~\n            !)jvZU>      )dhn!  [Z%ou]]/)\n          >(\\- IxY?      (mbz[}rzJdC>  >jr<\n        !\\r1    ]uvu{     )YCUZW8dL/    <nz[\n       (cj~      {LkY!    ]nXvQ*#O/      ?YL(\n     ?cUj+        ~rji    _/njjcux(      l\\L0t\n   !nmpmQz)l        i     {vzr))vCfl    I{xUwwnl\n   }Y0OwbpLti      I>      _1jUm0n{-[\\f(}j0dbbwx;\n     ~fQqLx(+      I1|_;   >tJZY[   ItOOx|jUqpU1\n l1vZ*&aX-   I      +uUf<  (Ur~       vpY[i{Ub*hOn];\nmbha8%w1   i?-       }\\<   -nfi       ~xt~  -jO&$%Wh\nvf)fv)   {jf[         i    I(YjI       l<<    {Y0cvU\n   >  _rJ0Y\\~         ?1I  I1XmU1l   l>!<1t(~  <|}\n    _zLUvrxf_                -/uuj/\\)]l  [vOZY/+l!\n    >rYx1)\\?            I-)jcn];         ?jUOmL|\n      [nr{>         -fvXULLYLqwu!        [rcXr_\n       l(/+       ~fcYCYt?~ll?xv]       i(xx{\n         +]!     \\whwOZOUccUCUn-       I[\\)>\n           !    \\dhLn)1jzufrnvf>       +}_\n              !rbhc<  [zLUvuXX|       l<\n         I}|{\\LakU)l   itYznuf~\n      >\\Jbpr-rYr\\?;     }uXXu}\n   ~1fYOm0/  //;         !<l\n  <-<<-_~i   {|l\n             I?~\n               !",
   "neofetchLogo": "        ,i_~; ,>[?:\n      +|CbbY-   i}[>\n     +/LaaC}      l]~\n     |Yr?:      ,[nr-\n     -ur1-:   l{cOL/:\n       ,1JLr]_?)uc{\n         :<>    ,})i\n                  l}1>\n                   l)\\~\n                     !?+\n                      <<",
   "boot": [
     [
@@ -25,7 +24,7 @@
   "afterBanner": [
     [
       {
-        "t": "full-stack engineer \u00b7 secure systems \u00b7 norfolk, va",
+        "t": "full-stack engineer \u00b7 norfolk, va",
         "s": "dim"
       }
     ],
@@ -72,17 +71,7 @@
       ],
       [
         {
-          "t": "builds secure systems for DoD / intelligence-community targeting"
-        }
-      ],
-      [
-        {
-          "t": "platforms. java + spring boot on the backend, angular 21 on the"
-        }
-      ],
-      [
-        {
-          "t": "frontend, devsecops across classified and unclassified environs."
+          "t": "builds secure systems for DoD / intelligence-community targeting platforms. java + spring boot, angular 21+, devsecops across classified and unclassified environments."
         }
       ],
       [
@@ -122,47 +111,22 @@
       ],
       [
         {
-          "t": "  \u25b8 cut analyst source-citation review time from weeks to a few"
+          "t": "  \u25b8 sole backend engineer driving a citation-management overhaul across spring boot and angular"
         }
       ],
       [
         {
-          "t": "    hours \u2014 dynamic citation management, classification roll-up,"
+          "t": "  \u25b8 projected 90%+ reduction in citation review time, from weeks to hours, validated through internal testing"
         }
       ],
       [
         {
-          "t": "    fine-grained access control. spring boot apis + angular."
+          "t": "  \u25b8 secured ci/cd delivery of 8 containerized services across 4 classified and unclassified environments"
         }
       ],
       [
         {
-          "t": "  \u25b8 owned a backend module overhaul design \u2192 production as"
-        }
-      ],
-      [
-        {
-          "t": "    primary engineer; sustained delivery across 14 sprints."
-        }
-      ],
-      [
-        {
-          "t": "  \u25b8 shipped 8 containerized services into 4 classified and"
-        }
-      ],
-      [
-        {
-          "t": "    unclassified environments with devsecops ci/cd practices."
-        }
-      ],
-      [
-        {
-          "t": "  \u25b8 leading the react \u2192 angular 21 migration of a production"
-        }
-      ],
-      [
-        {
-          "t": "    mission-critical frontend: 20+ analyst-facing views rebuilt."
+          "t": "  \u25b8 leading react → angular 21 migration, rebuilding 20+ core pages while improving performance and maintainability"
         }
       ],
       [
@@ -194,17 +158,12 @@
       ],
       [
         {
-          "t": "  \u25b8 prototyped an autoscaling container-scanning pipeline:"
+          "t": "  \u25b8 prototyped an autoscaling container-scanning pipeline: aws, terraform, kubernetes, docker, python."
         }
       ],
       [
         {
-          "t": "    aws, terraform, kubernetes, docker, python."
-        }
-      ],
-      [
-        {
-          "t": "  \u25b8 wrote the docs, presented the prototype, aligned stakeholders."
+          "t": "  \u25b8 wrote docs, presented the prototype, aligned stakeholders."
         }
       ],
       [
@@ -236,11 +195,11 @@
       ],
       [
         {
-          "t": "cloud/devsec",
+          "t": "devops",
           "s": "key"
         },
         {
-          "t": "  docker \u00b7 kubernetes \u00b7 aws \u00b7 aws govcloud \u00b7 platform one",
+          "t": "       docker \u00b7 kubernetes \u00b7 aws \u00b7 aws govcloud \u00b7 platform one",
           "s": "dim"
         }
       ],
@@ -260,7 +219,7 @@
           "s": "key"
         },
         {
-          "t": "    angular 21 \u00b7 react",
+          "t": "    angular 21+ \u00b7 react",
           "s": "dim"
         }
       ],
@@ -333,7 +292,7 @@
           "s": "key"
         },
         {
-          "t": "     crate-digging \u00b7 ex-producer \u00b7 guitar"
+          "t": "     crate-digging \u00b7 listening \u00b7 guitar"
         }
       ],
       [
@@ -347,29 +306,11 @@
       ],
       [
         {
-          "t": "  iron",
+          "t": "  fitness",
           "s": "key"
         },
         {
-          "t": "      weightlifting \u00b7 indoor bouldering"
-        }
-      ],
-      [
-        {
-          "t": "  garage",
-          "s": "key"
-        },
-        {
-          "t": "    cars \u2014 always cars"
-        }
-      ],
-      [
-        {
-          "t": "  kitchen",
-          "s": "key"
-        },
-        {
-          "t": "   cooking"
+          "t": "   weightlifting \u00b7 indoor bouldering"
         }
       ],
       [
@@ -378,7 +319,7 @@
           "s": "key"
         },
         {
-          "t": "    classic architecture \u00b7 zillow, recreationally"
+          "t": "    scrolling zillow like its tiktok \u00b7 looking at houses i cant afford"
         }
       ]
     ],
@@ -389,8 +330,8 @@
           "s": "key"
         },
         {
-          "t": "    lukeduke313@gmail.com",
-          "href": "mailto:lukeduke313@gmail.com"
+          "t": "    luke.cotnoir.3@gmail.com",
+          "href": "mailto:luke.cotnoir.3@gmail.com"
         }
       ],
       [
@@ -417,8 +358,8 @@
           "s": "key"
         },
         {
-          "t": "   github.com/lukeduke313",
-          "href": "https://github.com/lukeduke313"
+          "t": "   github.com/lukecotnoir",
+          "href": "https://github.com/lukecotnoir"
         }
       ],
       [
@@ -427,8 +368,8 @@
           "s": "key"
         },
         {
-          "t": " linkedin.com/in/lukecotnoir",
-          "href": "https://linkedin.com/in/lukecotnoir"
+          "t": " linkedin.com/in/luke-cotnoir",
+          "href": "https://www.linkedin.com/in/luke-cotnoir"
         }
       ]
     ],
@@ -441,11 +382,6 @@
       [
         {
           "t": "  \u2192 ships production angular + spring boot"
-        }
-      ],
-      [
-        {
-          "t": "  \u2192 holds the clearance most teams wait a year for"
         }
       ],
       [
@@ -498,9 +434,5 @@
     ],
     "footer": "tab completes. \u2191/\u2193 recalls history. ctrl+l clears."
   },
-  "mascot": "                            \">+l\n                  ^[t\\[>!~)u0hMhc>\n                 -vQk%%Mobpd#@@@8C~\n                [UCYh@@@@@@@@@@@@%C<\n               {moh#$$%&M#*ooo*M&8oc!\n              +UhhwQXnf|1{[[[}{)()(}I\n              >(|}[[1|fxvzXYUYXzuf[<!\"\n             >|nU0qka***oahhha*M#*ohbq0Ux)~^\n        `<)nJwbkbdqmLu|}-~>!l_\\unt|txcYJCJYu1\"\n      i)nczcn/{+Ii\\UCn_     -cOQx~    !+-[1|]^\n      ]rt}_<l    ja@#J1:`::)p@@pf>   \"~_<I\n     :l>~+-]?>I;-L$@&CfUb*ad*@@aY\\_I:I!!I:::::,\n    _\\jfjjjjjjjjrXmdp0CmbkdOJOddwLujjjjjjjjjjj\\_\n     \":::::,,,,,,^   ``         ``\",,,:::,,,,,\"",
-  "mascotBlink": "                            \">+l\n                  ^[t\\[>!~)u0hMhc>\n                 -vQk%%Mobpd#@@@8C~\n                [UCYh@@@@@@@@@@@@%C<\n               {moh#$$%&M#*ooo*M&8oc!\n              +UhhwQXnf|1{[[[}{1))(}I\n              >(|1[[1|fxvzXYUYXzvf[<!\"\n             >|nzCZdho**oahhhaao**ohbq0Ux)~^\n        `<)nJwbb0vrrrt)[-~>ilIi~_])txcYJCJYu1\"\n      i)nczcn/{~!~][[[?I    I]{{}[>   !+-[1|]^\n      ]rt}_<l    ~}{{1[>,:::~[{{{{_^ \"~_<I\n     :l>~+-]?>I;;>[1{]]nq*hQt}111-l::I!!I:::::,\n    _\\jfjjjjjjjjrvJQQUUOdkdOXU0O0Unjjjjjjjjjjj\\_\n     \":::::,,,,,,,\"^^^\"`     `^^^\",,,,:::,,,,,\"",
-  "mascotLeft": "                            \">+l\n                  ^[t\\[>!~)u0hMhc>\n                 -vQk%%Mobpd#@@@8C~\n                [UCYh@@@@@@@@@@@@%C<\n               {moh#$$%&M#*ooo*M&8oc!\n              +UhhwQXnf|1{[[[}{1))(}I\n              <(|{[[1|fxvzXYYYXzvf[<!\"\n             >|nXLmdho**oaaao*****ohbq0Ux)~^\n        `<)nJmwOO0Jcnf|}-<i_|rj)]}(txcYJCJYu1\"\n      i)nczcn\\?_jJCr<     [XOLj>      !+-[1|]^\n      ]rt}_<l ,u#@*X[`  \"\\b@$m\\I     \"~_<I\n     :l>~+-]?>[LW$#Crt(upM$@%pzxt[i::I!!I:::::,\n    _\\jfjjjjjjruzLmwOLJOddqOQOwwOUnjjjjjjjjjjj\\_\n     \":::::,,,,^`` ```^`      ```\",,,,:::,,,,,\"",
-  "mascotRight": "                            \">+l\n                  ^[t\\[>!~)u0hMhc>\n                 -vQk%%Mobpd#@@@8C~\n                [UCYh@@@@@@@@@@@@%C<\n               {moh#$$%&M#*ooo*M&8oc!\n              +UhhwQYnf|1{[[[}{1))(}I\n              >(|{[[{|fxvzXYUYXzuf[>!\"\n             >|nzCmh*##*oahhhha*#M#abq0Ux)~^\n        `<)nJwbbOzUmpOz\\?<>i!i>[fzYcnvYJCJYu1\"\n      i)nczcn/{~\"  :(XLc[     +n0Qn+  !+-[1|]^\n      ]rt}_<l      |b@&Q(I`^ +QB@kn_ \"~_<I\n     :l>~+-]?>I;I~\\Z$@W0uJqQfrd@@hr]~l!!I:::::,\n    _\\jfjjjjjjjjrvCmwmOmwpdOXJZpdZXnxjjjjjjjjj\\_\n     \":::::,,,,,,\"^`   ``    ``   ^\",,:::,,,,,\"",
   "bannerSsh": "                  +][?<    ~][]+  _?+ l?]]_ I??+  -?]]?[?<\n                 !Z@@@L   IO@@@0I?d@d(c8@@hvdBaL?t#@@&da%#i\n                  |@@@?    1@@@}  c@z <W@@$BBJ_  lp@@8O8MX\n                  {@@@+    ?@@@]  u@n lM@@@@@O?   w@@$d@p[\n                  n@@@n)zd?<W@@O|/k$1 [8@@#o@@$J}}h@@orJwd>\n                 lQ#W#qwdb- [O**dwZt  nkM#w\\\\w#h0UdMMhwwbd>\n                    ;;         I;       ;     ;    ;;\n\n    )JqmOOQt  ]XwmZw0j!lOqZdhkmZwfzpdC?  Xpwr It0wZmwY}  XdkdJ>/ZbkwmpQ|\n   0@@*r(X%o<u@@$u\\m@@h|owY@@@0Xour@@@$U-r@%|~b@@w/n%@@z;r@@@c [#@@o0@@@[\n  ?@@@n   ?}>W@@mI [@@@n> +$@@f   <$@B@@MC@#+j@@@}  0@@8!_@@@{  d@@$M@@a<\n  <%@@Ci <Xz<d@@h+;/@@@|  -@@@r   -@BjC$@@@#i(@@@jI~p@@hI]@@@) lk@@W#@@k+\n   (h@Bw0dMY _w@@pO#@Wu   Y@@@q-  Y@$Xl[w@@d  xM@MOq$@p?IC@@@O<fW@@*cd@@p)\n     +|t/1>    <1/t\\[I    ?\\/\\1   ?||-   ](<   I?|t/)<   [\\/\\{ <|\\\\(>I)|)!"
 }
