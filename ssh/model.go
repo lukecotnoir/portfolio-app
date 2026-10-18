@@ -10,6 +10,7 @@ import (
 	"github.com/charmbracelet/bubbles/viewport"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
+	"github.com/muesli/reflow/wordwrap"
 )
 
 var (
@@ -148,7 +149,11 @@ func host() string {
 }
 
 func (m *model) refresh() {
-	m.vp.SetContent(strings.Join(m.lines, "\n"))
+	wrapped := make([]string, 0, len(m.lines))
+	for _, l := range m.lines {
+		wrapped = append(wrapped, wordwrap.String(l, m.vp.Width))
+	}
+	m.vp.SetContent(strings.Join(wrapped, "\n"))
 	m.vp.GotoBottom()
 }
 
