@@ -50,7 +50,7 @@ export class CommandsService {
           TEXT(c.help.footer, 'faint'),
         ],
       },
-      about: { desc: 'who this is', run: () => [...ART_LINE(c.detective), TEXT(''), ...this.section('about')] },
+      about: { desc: 'who this is', run: () => [...this.section('about')] },
       whoami: { desc: 'who this is', run: () => this.commands()['about'].run([]) as OutLine[] },
       whois: { desc: 'whois luke', run: () => this.commands()['about'].run([]) as OutLine[] },
       work: { desc: 'what he ships', run: () => this.section('work') },
@@ -128,11 +128,7 @@ export class CommandsService {
           TEXT('  PID  CPU%  MEM%  PROCESS', 'dim'),
           TEXT('    1   4.2   12   spring-boot serve'),
           TEXT('  105  31.0   44   ng migrate --from react'),
-          TEXT('  208   8.8    9   kubectl rollout watch'),
-          TEXT('  313   0.2   61   hollow-knight --silksong --wait'),
-          TEXT('  404   0.0    0   motivation.service [failed, restarted]', 'red'),
-          TEXT('  700  12.1    7   guitar-amp-sim'),
-          TEXT('  911   2.4    3   zillow --scroll --endless'),
+          TEXT('  313   0.2   61   hollow-knight --silksong-sea-of-sorrow --wait'),
           TEXT(''),
           TEXT('load average: reasonable. mostly.', 'faint'),
         ],
@@ -152,17 +148,16 @@ export class CommandsService {
             TEXT('       luke [--angular] [--spring] [--cleared] <mission>'),
             TEXT(''),
             TEXT('DESCRIPTION'),
-            TEXT('       ships production software for places where shipping'),
-            TEXT('       matters. migrates legacy frontends. runs containers'),
+            TEXT('       ships production software for the IC. migrates legacy codebases. runs containers'),
             TEXT('       into classified environs. documents everything.'),
             TEXT(''),
             TEXT('BUGS'),
-            TEXT('       occasionally says "one more song" at 2am.'),
+            TEXT('       occasionally says "one more game" at 2am.'),
             TEXT(''),
             TEXT('SEE ALSO'),
             TEXT('       contact(1), hire(1), resume(1)'),
             TEXT(''),
-            TEXT('LUKE(1)                    October 2026                    LUKE(1)', 'bright'),
+            TEXT('LUKE(1)                            2026                    LUKE(1)', 'bright'),
           ];
         },
       },
@@ -172,7 +167,6 @@ export class CommandsService {
         run: () => [
           L([R('> querying adjudication ...', 'dim')], undefined, 400),
           L([R('> status: ACTIVE TS/SCI — full scope polygraph', 'accent')], undefined, 400),
-          L([R('> access granted. you may read this website.')], undefined, 0),
         ],
       },
 
@@ -204,14 +198,14 @@ export class CommandsService {
       echo: { desc: 'echo <text>', run: (args) => [TEXT(args.join(' '))] },
       pwd: { desc: 'where am i', run: () => [TEXT('/home/guest — you never left')] },
       date: { desc: 'the hour', run: () => [TEXT(new Date().toString(), 'dim')] },
-      uname: { desc: 'system', run: () => [TEXT('lukeOS noir 2.6.1 tty1 x86_64')] },
+      uname: { desc: 'system', run: () => [TEXT('lukeOS 2.6.1 tty1 x86_64')] },
       id: { desc: 'id', run: () => [TEXT('uid=1000(guest) gid=1000(visitor) groups=cool_people')] },
       ping: { desc: 'ping', run: () => [TEXT('pong. latency: zero.')] },
 
       clear: { desc: 'clear screen', run: () => 'clear' },
       cls: { desc: 'clear screen', run: () => 'clear' },
 
-      vim: { desc: 'no', run: () => [TEXT('no editor installed. you get a prompt and you like it.', 'dim')] },
+      vim: { desc: 'no', run: () => [TEXT('no editor installed.', 'dim')] },
       emacs: { desc: 'no', run: () => this.commands()['vim'].run([]) as OutLine[] },
       nano: { desc: 'no', run: () => this.commands()['vim'].run([]) as OutLine[] },
 
@@ -228,8 +222,8 @@ export class CommandsService {
         desc: 'change theme',
         run: (args) =>
           args[0] === 'green' || args[0] === 'matrix'
-            ? [TEXT('green phosphor is overdone. staying noir.', 'red')]
-            : [TEXT('one theme. it is called noir.', 'dim')],
+            ? [TEXT('green phosphor is overdone. staying dark.', 'red')]
+            : [TEXT('one theme. it is called dark.', 'dim')],
       },
 
       rm: {
@@ -241,7 +235,7 @@ export class CommandsService {
       },
 
       games: { desc: 'easter egg', run: () => [TEXT('overwatch · wow · hollow knight.', 'dim')] },
-      music: { desc: 'easter egg', run: () => [TEXT('ex-producer. guitar in the corner. always hunting the next record.', 'dim')] },
+      music: { desc: 'easter egg', run: () => [TEXT('guitar in the corner. always hunting the next album.', 'dim')] },
       peek: {
         desc: 'he watches',
         run: () => [...ART_LINE(c.mascot), TEXT('he sees you.', 'dim')],
