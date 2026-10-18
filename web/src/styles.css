@@ -115,7 +115,7 @@ body {
   position: fixed;
   inset: 106px 1px 1px 1px;
   overflow-y: auto;
-  padding: 12px 30px 90px;
+  padding: 12px 15% 90px;
   scrollbar-width: thin;
   scrollbar-color: var(--faint) transparent;
 }
